@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>altra parte — wine bar &amp; pub, Palermo</title>
+<meta name="description" content="altra parte è un wine bar a Palermo: carta dei vini anche alla mescita, cocktail, birre alla spina, food, distillati e soft drink. Vieni a trovarci.">
+<link rel="icon" href="https://z-cdn-media.chatglm.cn/files/ffc18645-4bc9-43fa-b5aa-87f44298b587.png?auth_key=1888670849-c9c7472b45a941f78b35753b61d86bfc-0-ce6fd6241f331872e8197a15a868d1bc">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+<style>
+/* ============ base ============ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --green:#3A871C; --green-dark:#2c6a15; --green-lite:#79c151;
+  --ink:#1a1815; --muted:#6f6a60; --faint:#a8a196;
+  --paper:#faf9f7; --paper2:#f2efe9; --line:#e4e0d6; --dots:#d5cfc2;
+  --black:#1B4332; --nav-h:76px;
+}
+html{scroll-padding-top:90px}
+body{font-family:'Instrument Sans',sans-serif;font-size:16px;line-height:1.6;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;background:none;border:none;cursor:pointer;color:inherit}
+input{font:inherit}
+::selection{background:var(--green);color:#fff}
+:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+input[type=search]::-webkit-search-cancel-button{display:none}
+.paper{background:var(--paper)} .paper2{background:var(--paper2)}
+.wrap{max-width:1180px;margin:0 auto;padding-left:clamp(20px,4vw,48px);padding-right:clamp(20px,4vw,48px)}
+.section{padding:clamp(70px,9vw,120px) 0}
+.ic{flex:none;display:inline-block}
+
+/* tipografia sezioni */
+.eyebrow{display:flex;align-items:center;gap:14px;font-weight:600;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-bottom:20px}
+.eyebrow b{color:var(--green);font-weight:600}
+.eyebrow::after{content:'';width:42px;height:1px;background:var(--dots)}
+.sec-title{font-family:Fraunces,serif;font-weight:500;font-size:clamp(34px,4.6vw,54px);line-height:1.05;letter-spacing:-.01em}
+.sec-sub{margin-top:16px;color:var(--muted);max-width:560px;font-size:15.5px}
+
+/* bottoni */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;font-weight:600;font-size:12.5px;letter-spacing:.15em;text-transform:uppercase;border:1px solid transparent;border-radius:2px;cursor:pointer;transition:background .25s,border-color .25s,color .25s,transform .25s}
+.btn:active{transform:translateY(1px)}
+.btn-green{background:var(--green);color:#fff}
+.btn-green:hover{background:var(--green-dark)}
+.btn-ghost{color:#fff;border-color:rgba(255,255,255,.38)}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.07)}
+.btn-outline{border-color:var(--ink);color:var(--ink)}
+.btn-outline:hover{background:var(--ink);color:var(--paper)}
+.btn-rev{border:1px solid var(--dots);color:var(--muted);background:transparent}
+.btn-rev:hover{border-color:var(--green);color:var(--green-dark)}
+.rev-stars{display:inline-flex;gap:2px;color:var(--green)}
+.ct-actions .btn-rev,.hc-actions .btn-rev{flex:1 1 100%;margin-top:2px}
+
+/* ============ navbar ============ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,4vw,48px);color:#fff;border-bottom:1px solid transparent;transition:background .35s,height .35s,border-color .35s,backdrop-filter .35s}
+.nav.solid{background:rgba(27,67,50,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom-color:rgba(255,255,255,.09);height:64px}
+.nav-brand{display:flex;align-items:center}
+.nav-brand img{height:30px;width:auto;object-fit:contain;mix-blend-mode:screen}
+.nav-links{display:flex;gap:clamp(24px,3vw,42px)}
+.nav-links a{position:relative;padding:6px 0;font-weight:500;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.65);transition:color .25s}
+.nav-links a:hover{color:#fff}
+.nav-links a.active{color:#fff}
+.nav-links a.active::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--green-lite)}
+.burger{display:none;flex-direction:column;gap:6px;padding:8px 2px}
+.burger span{display:block;width:24px;height:2px;background:#fff;transition:transform .3s,opacity .3s}
+
+/* mobile menu overlay */
+.mmenu{position:fixed;inset:0;z-index:150;background:var(--black);color:#fff;display:flex;flex-direction:column;padding:0 clamp(20px,5vw,40px) 34px;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
+.mmenu.open{opacity:1;visibility:visible}
+.mm-head{height:var(--nav-h);display:flex;align-items:center;justify-content:space-between}
+.mm-head img{height:28px;mix-blend-mode:screen}
+.mm-close{padding:10px;color:#fff}
+.mmenu nav{flex:1;display:flex;flex-direction:column;justify-content:center;gap:6px}
+.mmenu nav a{font-family:Fraunces,serif;font-weight:500;font-size:clamp(42px,11vw,60px);line-height:1.2;color:rgba(255,255,255,.92);opacity:0;transform:translateY(18px);transition:opacity .5s,transform .5s,color .25s}
+.mmenu nav a:hover{color:var(--green-lite)}
+.mmenu.open nav a{opacity:1;transform:none}
+.mmenu.open nav a:nth-child(1){transition-delay:.08s}
+.mmenu.open nav a:nth-child(2){transition-delay:.16s}
+.mmenu.open nav a:nth-child(3){transition-delay:.24s}
+.mm-foot{display:flex;flex-wrap:wrap;gap:8px 26px;font-size:13px;color:rgba(255,255,255,.5)}
+.mm-foot a{color:rgba(255,255,255,.75);display:inline-flex;align-items:center;gap:8px}
+.mm-foot a:hover{color:var(--green-lite)}
+
+/* ============ viste ============ */
+.view{display:none}
+.view.active{display:block;animation:viewIn .5s ease both}
+@keyframes viewIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* ============ hero ============ */
+.hero{background:var(--black);color:#fff}
+.hero-inner{min-height:calc(100svh - var(--nav-h));display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:44px 20px 24px}
+.hero-logo-wrap{animation:heroIn 1.1s .1s cubic-bezier(.22,.61,.36,1) both}
+.hero-logo-wrap img{width:min(300px,58vw);height:auto;mix-blend-mode:screen}
+.hero-fb{display:none;font-family:Fraunces,serif;font-style:italic;font-weight:500;font-size:clamp(44px,9vw,72px);line-height:1.05}
+.hero-payoff{margin-top:26px;font-family:Fraunces,serif;font-style:italic;font-weight:400;font-size:clamp(19px,2.6vw,27px);line-height:1.45;color:rgba(255,255,255,.85);animation:heroIn 1s .35s cubic-bezier(.22,.61,.36,1) both}
+.hero-cta{margin-top:40px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center;animation:heroIn 1s .5s cubic-bezier(.22,.61,.36,1) both}
+.pour{width:1px;height:70px;margin-top:62px;overflow:hidden;background:rgba(255,255,255,.12);animation:heroIn 1s .65s both}
+.pour::before{content:'';display:block;width:100%;height:100%;background:var(--green-lite);animation:pour 3s cubic-bezier(.6,.05,.4,.95) infinite}
+@keyframes pour{0%{transform:translateY(-100%)}60%{transform:translateY(0)}100%{transform:translateY(100%)}}
+@keyframes heroIn{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
+.hero-photo{width:100%;aspect-ratio:21/10;overflow:hidden;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 15%);mask-image:linear-gradient(to bottom,transparent 0,#000 15%)}
+.hero-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.92) contrast(1.05);animation:heroImg 2.6s .2s cubic-bezier(.22,.61,.36,1) both}
+@keyframes heroImg{from{transform:scale(1.09)}to{transform:scale(1)}}
+
+/* logo fallback generico */
+.logo-fallback{display:none;font-family:Fraunces,serif;font-style:italic;font-weight:500;font-size:20px;color:#fff}
+
+/* ============ indice carta (home) ============ */
+.index-list{margin-top:44px}
+.index-row{display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:10px 18px;padding:26px 0;border-top:1px solid var(--line);cursor:pointer}
+.index-row:last-child{border-bottom:1px solid var(--line)}
+.ir-num{grid-row:1;font-family:Fraunces,serif;font-style:italic;font-size:15px;color:var(--faint)}
+.ir-main{grid-column:2;grid-row:1;display:flex;flex-direction:column;min-width:0}
+.ir-name{font-family:Fraunces,serif;font-weight:500;font-size:clamp(32px,4.6vw,52px);line-height:1.05;letter-spacing:-.01em;transition:color .3s,transform .3s}
+.ir-desc{margin-top:7px;font-size:14px;color:var(--muted);max-width:560px}
+.ir-end{grid-column:3;grid-row:1;display:flex;align-items:center;gap:16px}
+.ir-count{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);white-space:nowrap}
+.ir-arrow{color:var(--green);opacity:0;transform:translateX(-8px);transition:opacity .3s,transform .3s}
+.index-row:hover .ir-name{color:var(--green-dark);transform:translateX(10px)}
+.index-row:hover .ir-arrow{opacity:1;transform:none}
+
+#float-img{position:fixed;left:0;top:0;z-index:60;width:235px;aspect-ratio:4/3;overflow:hidden;border-radius:4px;pointer-events:none;opacity:0;transition:opacity .35s;box-shadow:0 26px 60px rgba(20,16,10,.28);display:none}
+#float-img img{width:100%;height:100%;object-fit:cover}
+#float-img.show{opacity:1}
+@media (hover:hover) and (min-width:900px){#float-img{display:block}}
+
+/* ============ in evidenza ============ */
+.feat-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,3vw,44px);margin-top:46px}
+.feat-main{display:grid;grid-template-columns:48% 1fr;background:#fff;border:1px solid var(--line);border-radius:3px;overflow:hidden;box-shadow:0 22px 50px rgba(28,25,18,.07);transition:transform .35s,box-shadow .35s}
+.feat-main:hover{transform:translateY(-4px);box-shadow:0 30px 64px rgba(28,25,18,.11)}
+.feat-main figure{min-height:100%}
+.feat-main figure img{width:100%;height:100%;object-fit:cover}
+.fm-body{padding:clamp(24px,2.6vw,36px);display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.fm-tag{display:inline-flex;align-items:center;gap:7px;font-weight:700;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--green-dark);background:rgba(58,135,28,.1);border:1px solid rgba(58,135,28,.24);border-radius:999px;padding:6px 12px}
+.fm-tag.outline{background:none;border-color:var(--dots);color:var(--muted)}
+.fm-body h3{font-family:Fraunces,serif;font-weight:500;font-size:clamp(22px,2.2vw,27px);line-height:1.15}
+.fm-body p{font-size:14.5px;color:var(--muted)}
+.fm-meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;font-family:Fraunces,serif;font-size:19px}
+.fm-meta em{font-family:'Instrument Sans',sans-serif;font-style:normal;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-left:5px}
+.fm-cta{margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--green-dark)}
+.fm-cta .ic{transition:transform .3s}
+.feat-main:hover .fm-cta .ic,.feat-mini:hover .fm-cta .ic{transform:translateX(5px)}
+.feat-side{display:flex;flex-direction:column;gap:22px}
+.feat-mini{display:block;border:1px solid var(--line);border-radius:3px;padding:26px 28px;transition:border-color .3s,transform .3s}
+.feat-mini:last-child{width:90%;align-self:flex-end}
+.feat-mini:hover{border-color:var(--green);transform:translateY(-3px)}
+.feat-mini h3{font-family:Fraunces,serif;font-weight:500;font-size:23px;margin:12px 0 8px}
+.feat-mini p{font-size:14px;color:var(--muted)}
+.feat-mini .fm-cta{margin-top:16px}
+
+/* badge mescita / metodo / spina */
+.badge-mescita{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--green-dark);background:rgba(58,135,28,.1);border:1px solid rgba(58,135,28,.24);border-radius:999px;padding:5px 11px;white-space:nowrap}
+.badge-mescita .ic{width:12px;height:12px}
+.badge-spina{display:inline-flex;align-items:center;font-weight:700;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--green-dark);background:rgba(58,135,28,.1);border:1px solid rgba(58,135,28,.24);border-radius:999px;padding:5px 11px;white-space:nowrap}
+.badge-method{display:inline-flex;align-items:center;font-weight:700;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);border:1px solid var(--dots);border-radius:999px;padding:5px 11px;white-space:nowrap}
+
+/* ============ chi siamo ============ */
+.about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,6vw,90px);align-items:center}
+.about-fig img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:3px;filter:saturate(.95)}
+.about-fig figcaption{margin-top:12px;font-size:12.5px;font-style:italic;color:var(--faint)}
+.about-txt blockquote{font-family:Fraunces,serif;font-style:italic;font-weight:500;font-size:clamp(23px,2.8vw,33px);line-height:1.3;letter-spacing:-.01em}
+.about-txt blockquote::before{content:'«';color:var(--green)}
+.about-txt blockquote::after{content:'»';color:var(--green)}
+.about-txt p{margin-top:18px;font-size:15.5px;color:var(--muted)}
+.about-sign{margin-top:26px;display:flex;align-items:center;gap:12px;font-weight:600;font-size:13px;letter-spacing:.08em}
+.about-sign::before{content:'';width:28px;height:2px;background:var(--green)}
+
+/* ============ gallery ============ */
+.gallery{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:76px;grid-auto-flow:dense;gap:14px;margin-top:44px}
+.g-item{position:relative;overflow:hidden;border-radius:3px}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.22,.61,.36,1);filter:saturate(.95)}
+.g-item:hover img{transform:scale(1.06)}
+.g-item figcaption{position:absolute;left:0;right:0;bottom:0;padding:11px 14px;color:#fff;font-weight:600;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;background:rgba(27,67,50,.62);opacity:0;transform:translateY(6px);transition:opacity .35s,transform .35s}
+.g-item:hover figcaption{opacity:1;transform:none}
+.g1{grid-column:span 3;grid-row:span 4}
+.g2{grid-column:span 3;grid-row:span 3}
+.g3{grid-column:span 2;grid-row:span 3}
+.g4{grid-column:span 2;grid-row:span 2}
+.g5{grid-column:span 2;grid-row:span 2}
+.g6{grid-column:span 3;grid-row:span 2}
+.g7{grid-column:span 3;grid-row:span 3}
+
+/* ============ contatti (home) ============ */
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(40px,6vw,80px);margin-top:46px}
+.hc-addr{font-family:Fraunces,serif;font-weight:500;font-size:clamp(26px,3vw,36px);line-height:1.25}
+.hc-sub{margin-top:8px;color:var(--muted);font-size:15px}
+.hc-actions{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
+.hc-h{font-weight:600;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);margin-bottom:16px}
+.h-row{display:flex;justify-content:space-between;gap:20px;padding:11px 0;border-bottom:1px dotted var(--dots);font-size:15px;color:var(--muted)}
+.h-row .h-time{color:var(--ink);font-weight:500;white-space:nowrap}
+.h-row.closed .h-time{color:var(--faint);font-weight:400}
+.h-row.today{color:var(--ink)}
+.h-row.today .h-day{font-weight:600}
+.h-row.today .h-day::after{content:'oggi';background:var(--green);color:#fff;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-radius:999px;padding:3px 9px;margin-left:10px;vertical-align:2px}
+.hc-ig{margin-top:24px;display:inline-flex;align-items:center;gap:10px;font-size:14.5px;color:var(--ink)}
+.hc-ig .ic{color:var(--green)}
+.hc-ig:hover{color:var(--green-dark)}
+
+/* ============ footer ============ */
+footer{background:var(--black);color:rgba(255,255,255,.72);padding-top:clamp(56px,7vw,84px)}
+.foot-grid{display:grid;grid-template-columns:1.4fr .6fr .6fr .8fr;gap:clamp(28px,4vw,48px)}
+.foot-brand img{height:52px;mix-blend-mode:screen;margin-bottom:18px}
+.foot-brand p{font-size:14px;line-height:1.7;color:rgba(255,255,255,.55);max-width:320px}
+.foot-col h4{font-weight:600;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:16px}
+.foot-col a,.foot-col span{display:block;padding:5px 0;font-size:14.5px;color:rgba(255,255,255,.75);cursor:default}
+.foot-col a{cursor:pointer;transition:color .25s}
+.foot-col a:hover{color:var(--green-lite)}
+.flink{font-size:12.5px;color:rgba(255,255,255,.55);padding:0}
+.flink:hover{color:var(--green-lite)}
+
+/* --- footer bottom: logo libero grande + ticker + policy impilate a destra --- */
+.foot-bottom{margin-top:clamp(44px,6vw,64px);border-top:1px solid rgba(255,255,255,.1);height:96px;display:flex;align-items:center;gap:28px}
+.riot-logo{flex:none;display:block;transition:transform .25s}
+.riot-logo img{height:86px;width:auto;display:block}
+.riot-logo:hover{transform:translateY(-2px)}
+.fb-pol{flex:none;display:flex;flex-direction:column;align-items:flex-end;gap:6px;margin-left:auto}
+.fb-pol .flink{font-size:12px}
+.ticker{flex:1;min-width:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 24px,#000 calc(100% - 24px),transparent);mask-image:linear-gradient(90deg,transparent,#000 24px,#000 calc(100% - 24px),transparent)}
+.ticker-track{display:inline-flex;white-space:nowrap;will-change:transform;animation:tkmove 45s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.tk{font-size:12px;color:rgba(255,255,255,.42);padding-right:110px;letter-spacing:.02em}
+@keyframes tkmove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ============ pagina menu ============ */
+.menu-head{padding:calc(var(--nav-h) + 54px) 0 0}
+.page-title{font-family:Fraunces,serif;font-weight:500;font-size:clamp(50px,8vw,92px);line-height:.98;letter-spacing:-.02em}
+.page-sub{margin-top:18px;color:var(--muted);font-size:16px;max-width:520px}
+.cats{display:flex;gap:clamp(12px,2vw,30px);margin-top:46px;border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+.cats::-webkit-scrollbar{display:none}
+.cat-tab{display:flex;align-items:baseline;gap:9px;padding:0 2px 15px;font-family:Fraunces,serif;font-weight:500;font-size:clamp(18px,2.1vw,23px);color:var(--faint);white-space:nowrap;position:relative;transition:color .25s}
+.cat-tab em{font-family:'Instrument Sans',sans-serif;font-style:normal;font-size:12px;color:var(--faint)}
+.cat-tab:hover:not(.active){color:var(--muted)}
+.cat-tab.active{color:var(--ink)}
+.cat-tab.active::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--green)}
+
+.filterbar{position:sticky;top:63px;z-index:50;background:rgba(250,249,247,.93);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.fb-in{display:flex;align-items:center;gap:16px;padding:13px 0;flex-wrap:wrap}
+.pills{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:2px}
+.pills::-webkit-scrollbar{display:none}
+.pill{flex:none;font-weight:500;font-size:13px;padding:8px 16px;border:1px solid var(--line);border-radius:999px;background:#fff;color:#55504a;white-space:nowrap;transition:border-color .25s,color .25s,background .25s}
+.pill:hover{border-color:var(--green);color:var(--green-dark)}
+.pill.active{background:var(--green);border-color:var(--green);color:#fff}
+.search{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:999px;background:#fff;padding:9px 16px;margin-left:auto;flex:0 1 300px;min-width:0;transition:border-color .25s}
+.search:focus-within{border-color:var(--green)}
+.search .ic{color:var(--faint)}
+.search input{flex:1;min-width:0;border:none;outline:none;background:none;font-size:14px;color:var(--ink)}
+.search input::placeholder{color:var(--faint)}
+.search .clear{display:none;color:var(--faint);padding:2px}
+.search.hasq .clear{display:inline-flex}
+.fcount{font-weight:500;font-size:12.5px;color:var(--faint);white-space:nowrap}
+
+.list{padding:30px 0 100px}
+.leader{display:none;flex:1;min-width:30px;border-bottom:2px dotted var(--dots);transform:translateY(-5px);align-self:flex-end}
+@media(min-width:900px){.leader{display:block}}
+
+/* --- schede vino --- */
+.wine-row{border-top:1px solid var(--line);padding:27px 0 29px}
+.wine-row:last-child{border-bottom:1px solid var(--line)}
+.wr-top{display:flex;align-items:flex-end;gap:20px}
+.wr-title{min-width:0}
+.wr-title h3{font-family:Fraunces,serif;font-weight:500;font-size:clamp(21px,2.3vw,26px);line-height:1.15;transition:color .25s}
+.wine-row:hover .wr-title h3{color:var(--green-dark)}
+.wr-year{font-family:Fraunces,serif;font-style:italic;font-weight:400;font-size:.68em;color:var(--faint);margin-left:8px;letter-spacing:.02em}
+.wr-sub{margin-top:6px;font-size:13px;color:var(--muted)}
+.wr-prices{display:flex;flex-direction:column;align-items:flex-end;gap:9px;flex:none}
+.price-row{display:flex;gap:24px;align-items:flex-end}
+.price{font-family:Fraunces,serif;font-weight:500;font-size:20px;white-space:nowrap;text-align:right}
+.price em{display:block;font-family:'Instrument Sans',sans-serif;font-style:normal;font-weight:600;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-top:3px}
+.price.glass{color:var(--green-dark)}
+.wr-notes{display:flex;flex-wrap:wrap;gap:12px 30px;margin-top:17px}
+.ng{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ng-label{font-weight:600;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
+.ng-chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:7px;font-weight:500;font-size:12px;color:#5c564c;border:1px solid var(--line);border-radius:999px;padding:4px 11px;background:#fff}
+.chip svg{width:13px;height:13px;flex:none}
+
+/* --- cocktail / food --- */
+.ck-row{border-top:1px solid var(--line);padding:25px 0 27px}
+.ck-row:last-child{border-bottom:1px solid var(--line)}
+.ck-row.signature{border-left:3px solid var(--green);margin-left:calc(-1 * clamp(20px,4vw,48px) - 20px);padding-left:calc(clamp(20px,4vw,48px) + 20px);border-top-color:transparent}
+.ck-top{display:flex;align-items:flex-end;gap:20px}
+.ck-title{display:flex;align-items:center;gap:12px;flex-wrap:wrap;min-width:0}
+.ck-title h3{font-family:Fraunces,serif;font-weight:500;font-size:clamp(21px,2.3vw,25px);transition:color .25s}
+.ck-row:hover .ck-title h3{color:var(--green-dark)}
+.ck-tag{display:inline-flex;font-weight:700;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--green-dark);border:1px solid rgba(58,135,28,.4);border-radius:999px;padding:4px 11px}
+.ck-price{font-family:Fraunces,serif;font-weight:500;font-size:20px;flex:none}
+.ck-ing{margin-top:9px;font-family:Fraunces,serif;font-style:italic;font-size:15.5px;color:#6b665b}
+.ck-desc{margin-top:10px;font-size:14.5px;color:var(--muted);max-width:640px}
+.ck-notes{margin-top:13px}
+
+/* --- distillati / birre --- */
+.dist-group{margin-top:34px}
+.dist-group:first-child{margin-top:0}
+.dist-group>h3{display:flex;align-items:baseline;gap:10px;font-family:Fraunces,serif;font-style:italic;font-weight:500;font-size:22px;padding-bottom:6px}
+.dist-group>h3 em{font-family:'Instrument Sans',sans-serif;font-style:normal;font-size:12px;color:var(--faint)}
+.dist-row{display:flex;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px dotted var(--dots)}
+.dist-row h3{font-family:Fraunces,serif;font-weight:500;font-size:19px;flex:none;transition:color .25s}
+.dist-row:hover h3{color:var(--green-dark)}
+.dr-sub{font-size:13px;color:var(--muted);min-width:0}
+.dr-price{font-family:Fraunces,serif;font-weight:500;font-size:17px;flex:none;white-space:nowrap;text-align:right}
+.dr-price em{display:block;font-family:'Instrument Sans',sans-serif;font-style:normal;font-weight:600;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+
+/* --- soft drink --- */
+.soft-lead{font-family:Fraunces,serif;font-style:italic;font-size:19px;color:var(--muted);max-width:520px}
+.soft-grid{columns:2;column-gap:64px;margin-top:36px}
+.soft-row{display:flex;align-items:baseline;gap:14px;padding:13px 0;break-inside:avoid}
+.sr-name{font-family:Fraunces,serif;font-weight:500;font-size:18px}
+.sr-sub{font-size:12.5px;color:var(--faint);white-space:nowrap}
+.sr-price{font-family:Fraunces,serif;font-weight:500;font-size:17px;flex:none}
+
+/* --- empty state --- */
+.empty{text-align:center;padding:80px 20px}
+.e-title{font-family:Fraunces,serif;font-weight:500;font-size:27px}
+.e-sub{margin:8px 0 26px;color:var(--muted);font-size:15px}
+
+/* ============ pagina contatti ============ */
+.ct-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,6vw,90px);margin-top:56px;padding-bottom:70px}
+.ct-addr{font-family:Fraunces,serif;font-weight:500;font-size:clamp(28px,3.4vw,40px);line-height:1.2}
+.ct-lines{margin-top:26px}
+.ct-line{display:flex;align-items:center;gap:13px;padding:13px 0;border-bottom:1px dotted var(--dots);font-size:15.5px;transition:color .25s}
+.ct-line .ic{color:var(--green)}
+.ct-line:hover{color:var(--green-dark)}
+.ct-actions{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap}
+.ct-note{margin-top:32px;background:var(--paper2);border-radius:3px;padding:22px 24px;font-size:14px;color:var(--muted)}
+.ct-note strong{color:var(--ink);font-weight:600}
+.ct-side-photo{margin-bottom:26px}
+.ct-side-photo img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:3px;filter:saturate(.95)}
+.ct-photo{margin-top:20px}
+.ct-photo img{width:100%;aspect-ratio:21/9;object-fit:cover;border-radius:3px;filter:saturate(.95)}
+
+/* ============ modale ============ */
+.modal{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.modal.open{opacity:1;visibility:visible}
+.modal-bg{position:absolute;inset:0;background:rgba(27,67,50,.62)}
+.modal-card{position:relative;background:var(--paper);max-width:540px;width:100%;border-radius:4px;padding:clamp(28px,5vw,44px);transform:translateY(16px);transition:transform .3s}
+.modal.open .modal-card{transform:none}
+.modal-card h3{font-family:Fraunces,serif;font-weight:500;font-size:26px;margin-bottom:14px}
+.modal-card p{font-size:14.5px;color:var(--muted)}
+.modal-close{position:absolute;top:16px;right:16px;padding:8px;color:var(--faint)}
+.modal-close:hover{color:var(--ink)}
+
+/* ============ reveal ============ */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,.61,.36,1)}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  *,*::before,*::after{animation:none!important;transition-duration:.001s!important}
+}
+
+/* ============ responsive ============ */
+@media(max-width:900px){
+  .nav-links{display:none}
+  .burger{display:flex}
+  .feat-grid{grid-template-columns:1fr}
+  .feat-main{grid-template-columns:1fr}
+  .feat-main figure{aspect-ratio:16/9}
+  .feat-mini:last-child{width:100%}
+  .about-grid{grid-template-columns:1fr}
+  .about-fig{order:-1}
+  .about-fig img{aspect-ratio:16/10}
+  .contact-grid,.ct-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .fcount{display:none}
+  .index-row{grid-template-columns:1fr;gap:4px;padding:24px 0}
+  .ir-num,.ir-main{grid-column:1}
+  .ir-end{grid-column:1;justify-content:space-between;width:100%}
+  .ir-name{transform:none!important}
+}
+@media(max-width:760px){
+  :root{--nav-h:62px}
+  .nav.solid{height:56px}
+  .filterbar{top:55px}
+  .fb-in{row-gap:10px}
+  .fb-in .search{flex:1 1 100%;order:-1;margin-left:0}
+  .hero-photo{aspect-ratio:4/3}
+  .hero-cta{flex-direction:column;align-items:stretch;width:100%;max-width:320px}
+  .hero-inner{min-height:calc(100svh - var(--nav-h))}
+  .gallery{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin:40px calc(-1*clamp(20px,4vw,48px)) 0;padding:0 clamp(20px,4vw,48px)}
+  .g-item{flex:0 0 74vw;height:340px;scroll-snap-align:center}
+  .g-item figcaption{opacity:1;transform:none}
+  .wr-top{flex-direction:column;align-items:flex-start;gap:12px}
+  .wr-prices{flex-direction:row;align-items:center;gap:16px}
+  .price-row{gap:20px}
+  .price{text-align:left}
+  .ck-top{flex-direction:column;align-items:flex-start;gap:10px}
+  .ck-row.signature{margin-left:-20px;padding-left:20px;border-top:1px solid var(--line)}
+  .soft-grid{columns:1}
+  .foot-grid{grid-template-columns:1fr}
+  .foot-bottom{flex-wrap:wrap;height:auto;row-gap:14px;padding:16px 0 22px}
+  .riot-logo img{height:72px}
+  .ticker{flex:1 1 100%;order:3}
+  .h-row.today .h-day::after{vertical-align:-1px}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<header class="nav" id="nav">
+  <a class="nav-brand" href="#/home" aria-label="altra parte — home">
+    <img data-logo alt="altra parte">
+    <span class="logo-fallback">altra parte</span>
+  </a>
+  <nav class="nav-links" aria-label="Navigazione principale">
+    <a href="#/home" data-nav="home">Home</a>
+    <a href="#/menu/vini" data-nav="menu">Menu</a>
+    <a href="#/contatti" data-nav="contatti">Contatti</a>
+  </nav>
+  <button class="burger" id="burger" aria-label="Apri il menu di navigazione">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- ============ MENU MOBILE ============ -->
+<div class="mmenu" id="mmenu" aria-hidden="true">
+  <div class="mm-head">
+    <img data-logo alt="altra parte">
+    <button class="mm-close" id="mm-close" aria-label="Chiudi il menu"><i data-icon="close" data-size="22"></i></button>
+  </div>
+  <nav>
+    <a href="#/home">Home</a>
+    <a href="#/menu/vini">Menu</a>
+    <a href="#/contatti">Contatti</a>
+  </nav>
+  <div class="mm-foot">
+    <a href="tel:+393272239930"><i data-icon="phone" data-size="14"></i>327 223 9930</a>
+    <a href="https://www.instagram.com/un_altra_parte/" target="_blank" rel="noopener"><i data-icon="ig" data-size="14"></i>@un_altra_parte</a>
+  </div>
+</div>
+
+<main id="app">
+
+<!-- ============ HOME ============ -->
+<section class="view" id="view-home">
+
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-logo-wrap">
+        <img data-logo alt="altra parte — logo">
+        <span class="logo-fallback hero-fb">altra parte</span>
+      </div>
+      <h1 class="hero-payoff">Un locale che non si prende troppo sul serio.<br>Il vino, invece, sì.</h1>
+      <div class="hero-cta">
+        <a class="btn btn-green" href="#/menu/vini">Scopri il menu <i data-icon="arrow" data-size="15"></i></a>
+        <a class="btn btn-ghost" href="#/contatti">Contatti</a>
+      </div>
+      <div class="pour" aria-hidden="true"></div>
+    </div>
+    <figure class="hero-photo">
+      <img src="immagini/home.webp" alt="L'atmosfera del locale di sera">
+    </figure>
+  </div>
+
+  <!-- indice della carta -->
+  <section class="section paper">
+    <div class="wrap">
+      <p class="eyebrow reveal"><b>01</b> La carta</p>
+      <h2 class="sec-title reveal">Sei modi<br>di riempire la serata.</h2>
+      <div class="index-list">
+        <a class="index-row reveal" href="#/menu/vini" data-img="immagini/p1.webp">
+          <span class="ir-num">01</span>
+          <span class="ir-main"><span class="ir-name">Vini</span><span class="ir-desc">Dallo Champagne al Timorasso: bollicine, rossi, bianchi e rosati — ventuno anche al calice</span></span>
+          <span class="ir-end"><span class="ir-count">83 etichette</span><i data-icon="arrow" data-size="22" class="ir-arrow"></i></span>
+        </a>
+        <a class="index-row reveal" href="#/menu/cocktail" data-img="immagini/cocktail.webp">
+          <span class="ir-num">02</span>
+          <span class="ir-main"><span class="ir-name">Cocktail</span><span class="ir-desc">I classici fatti come si deve, più tre signature nostre</span></span>
+          <span class="ir-end"><span class="ir-count">23 ricette</span><i data-icon="arrow" data-size="22" class="ir-arrow"></i></span>
+        </a>
+        <a class="index-row reveal" href="#/menu/birre" data-img="immagini/birre.webp">
+          <span class="ir-num">03</span>
+          <span class="ir-main"><span class="ir-name">Birre</span><span class="ir-desc">Lager e IPA alla spina, più le bottiglie che teniamo in frigo per le occasioni giuste</span></span>
+          <span class="ir-end"><span class="ir-count">6 birre</span><i data-icon="arrow" data-size="22" class="ir-arrow"></i></span>
+        </a>
+        <a class="index-row reveal" href="#/menu/distillati" data-img="immagini/distillati.webp">
+          <span class="ir-num">04</span>
+          <span class="ir-main"><span class="ir-name">Distillati</span><span class="ir-desc">Gin, whisky, amari, grappe e liquori: trentotto bottiglie, nessuna messa lì per caso</span></span>
+          <span class="ir-end"><span class="ir-count">38 etichette</span><i data-icon="arrow" data-size="22" class="ir-arrow"></i></span>
+        </a>
+        <a class="index-row reveal" href="#/menu/food" data-img="immagini/taglieri.webp">
+          <span class="ir-num">05</span>
+          <span class="ir-main"><span class="ir-name">Food</span><span class="ir-desc">Taglieri e qualche cosa buona dal bancone — per accompagnare il bicchiere</span></span>
+          <span class="ir-end"><span class="ir-count">6 voci</span><i data-icon="arrow" data-size="22" class="ir-arrow"></i></span>
+        </a>
+        <a class="index-row reveal" href="#/menu/soft" data-img="immagini/soft.webp">
+          <span class="ir-num">06</span>
+          <span class="ir-main"><span class="ir-name">Soft drink</span><span class="ir-desc">Toniche, spremute e tè: anche chi non beve merita di scegliere bene</span></span>
+          <span class="ir-end"><span class="ir-count">19 voci</span><i data-icon="arrow" data-size="22" class="ir-arrow"></i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- in evidenza -->
+  <section class="section paper" style="padding-top:0">
+    <div class="wrap">
+      <p class="eyebrow reveal"><b>02</b> In evidenza</p>
+      <h2 class="sec-title reveal">Da provare questa settimana.</h2>
+      <div class="feat-grid">
+        <a class="feat-main reveal" href="#/menu/vini">
+          <figure><img src="immagini/consigliati2.webp" alt="Calice di Timorasso"></figure>
+          <div class="fm-body">
+            <span class="fm-tag"><i data-icon="glass" data-size="12"></i>Vino della settimana</span>
+            <h3>Timorasso Piccolo Derthona — Vigneti Massa</h3>
+            <p>Frutta gialla, mandorla e una struttura che pochi bianchi hanno. Annata 2024, anche al calice per provarlo senza impegno.</p>
+            <div class="fm-meta">
+              <span>€ 32<em>bottiglia</em></span>
+              <span>€ 8<em>calice</em></span>
+            </div>
+            <span class="fm-cta">Vedi nella carta <i data-icon="arrow" data-size="14"></i></span>
+          </div>
+        </a>
+        <div class="feat-side">
+          <a class="feat-mini reveal" href="#/menu/cocktail">
+            <span class="fm-tag outline">Signature</span>
+            <h3>Celtic Wind</h3>
+            <p>Il nostro signature a base di whiskey. La ricetta non sta scritta sulla carta: te la raccontiamo al bancone.</p>
+            <span class="fm-cta">€ 8 · vedi cocktail <i data-icon="arrow" data-size="14"></i></span>
+          </a>
+          <a class="feat-mini reveal" href="#/menu/food">
+            <span class="fm-tag outline">Dal bancone</span>
+            <h3>Tagliere misto</h3>
+            <p>Salumi, formaggi, pane e marmellate. Il modo più giusto per far durare una bottiglia in due.</p>
+            <span class="fm-cta">€ 16 · vedi food <i data-icon="arrow" data-size="14"></i></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- chi siamo -->
+  <section class="section paper2" id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="about-txt">
+          <p class="eyebrow reveal"><b>03</b> Chi siamo</p>
+          <h2 class="sec-title reveal" style="margin-bottom:26px">Il bancone<br>prima di tutto.</h2>
+          <blockquote class="reveal">L'abbiamo aperto per avere un posto dove bere bene. Poi sono arrivati anche gli altri.</blockquote>
+          <p class="reveal">altra parte è un wine bar di quartiere, dall'altra parte del bancone rispetto al solito: una carta di vini scelta bicchiere per bicchiere, cocktail puliti, distillati seri e nessuna fretta di mandarti a casa.</p>
+          <p class="reveal">Le bottiglie le scegliamo una a una. E quando una ci piace davvero, la mettiamo alla mescita: così la provi anche senza impegno.</p>
+          <p class="about-sign reveal">altra parte, dal 2021</p>
+        </div>
+        <figure class="about-fig reveal">
+          <img src="immagini/bancone.webp" alt="Il bancone del locale in una serata qualsiasi">
+          <figcaption>Il bancone, un giovedì qualsiasi.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- gallery -->
+  <section class="section paper" id="gallery-sec">
+    <div class="wrap">
+      <p class="eyebrow reveal"><b>04</b> Galleria</p>
+      <h2 class="sec-title reveal">Dentro il locale.</h2>
+      <div class="gallery">
+        <figure class="g-item g1"><img src="https://picsum.photos/seed/altraparte-bancone/1000/800.jpg" alt="Il bancone"><figcaption>Bancone</figcaption></figure>
+        <figure class="g-item g2"><img src="https://picsum.photos/seed/altraparte-aperitivo/1000/800.jpg" alt="Aperitivo"><figcaption>Aperitivo</figcaption></figure>
+        <figure class="g-item g3"><img src="https://picsum.photos/seed/altraparte-carta/1000/800.jpg" alt="La carta dei vini"><figcaption>La carta</figcaption></figure>
+        <figure class="g-item g4"><img src="https://picsum.photos/seed/altraparte-bottiglie/1000/800.jpg" alt="Bottiglie"><figcaption>Bottiglie</figcaption></figure>
+        <figure class="g-item g5"><img src="https://picsum.photos/seed/altraparte-cocktail2/1000/800.jpg" alt="Cocktail"><figcaption>Cocktail</figcaption></figure>
+        <figure class="g-item g6"><img src="https://picsum.photos/seed/altraparte-interno/1000/800.jpg" alt="Sala"><figcaption>La sala</figcaption></figure>
+        <figure class="g-item g7"><img src="https://picsum.photos/seed/altraparte-serata/1000/800.jpg" alt="Serata"><figcaption>Serate</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- contatti -->
+  <section class="section paper" id="contatti-home">
+    <div class="wrap">
+      <p class="eyebrow reveal"><b>05</b> Contatti</p>
+      <h2 class="sec-title reveal">Vieni a trovarci.</h2>
+      <div class="contact-grid">
+        <div>
+          <p class="hc-addr reveal">Piazza Stazione Lolli, 8<br>90141 Palermo</p>
+          <p class="hc-sub reveal">A due passi dalla stazione centrale, dall'altra parte della confusione.</p>
+          <div class="hc-actions reveal">
+            <a class="btn btn-green" href="https://www.google.com/maps/place/Un'altra+parte/@38.1235741,13.3469262,17z/data=!3m1!4b1!4m6!3m5!1s0x1319ef14b41f7f05:0x537e55b90db4db76!8m2!3d38.1235741!4d13.3469262!16s%2Fg%2F11trgz5lc9?entry=ttu&amp;g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Apri su Google Maps <i data-icon="upright" data-size="15"></i></a>
+            <a class="btn btn-outline" href="#/contatti">Contattaci</a>
+            <a class="btn btn-rev" href="https://www.google.com/maps/place/Un'altra+parte/@38.1235741,13.3469262,17z/data=!3m1!4b1!4m6!3m5!1s0x1319ef14b41f7f05:0x537e55b90db4db76!8m2!3d38.1235741!4d13.3469262!16s%2Fg%2F11trgz5lc9?entry=ttu&amp;g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener"><span class="rev-stars"><i data-icon="star" data-size="12"></i><i data-icon="star" data-size="12"></i><i data-icon="star" data-size="12"></i><i data-icon="star" data-size="12"></i><i data-icon="star" data-size="12"></i></span> Cosa dicono di noi su Google</a>
+          </div>
+          <a class="hc-ig reveal" href="https://www.instagram.com/un_altra_parte/" target="_blank" rel="noopener"><i data-icon="ig" data-size="18"></i>@un_altra_parte</a>
+        </div>
+        <div class="reveal">
+          <!-- SOSTITUISCI: qui sotto la tua immagine personale (home) -->
+          <figure class="ct-side-photo">
+            <img src="immagini/corporatememphis.webp" alt="Foto del locale">
+          </figure>
+          <p class="hc-h">Orari</p>
+          <div class="h-row"><span class="h-day">Lunedì – Sabato</span><span class="h-time">17:00 – 00:00</span></div>
+          <div class="h-row closed"><span class="h-day">Domenica</span><span class="h-time">Chiuso</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ============ MENU ============ -->
+<section class="view" id="view-menu">
+  <div class="menu-head paper">
+    <div class="wrap">
+      <p class="eyebrow"><b>La carta</b> Menu</p>
+      <h1 class="page-title">Tutto quello<br>che versiamo.</h1>
+      <p class="page-sub">Vini al calice e in bottiglia, cocktail, birre, distillati e qualcosa da mangiare. Cerca, filtra, ordina: il difficile è scegliere.</p>
+      <nav class="cats" id="cats" aria-label="Categorie del menu"></nav>
+    </div>
+  </div>
+  <div id="menu-body" class="paper"></div>
+</section>
+
+<!-- ============ CONTATTI ============ -->
+<section class="view" id="view-contatti">
+  <div class="wrap" style="padding-top:calc(var(--nav-h) + 54px)">
+    <p class="eyebrow"><b>Contatti</b> Dove trovarci</p>
+    <h1 class="page-title">Dall'altra parte<br>del bancone.</h1>
+    <p class="page-sub">Nessuna prenotazione complicata: passa e vediamo. Se vuoi essere sicuro del tavolo, scrivici.</p>
+    <div class="ct-grid">
+      <div class="reveal">
+        <p class="hc-h">Indirizzo</p>
+        <p class="ct-addr">Piazza Stazione Lolli, 8<br>90141 Palermo</p>
+        <div class="ct-lines">
+          <a class="ct-line" href="tel:+393272239930"><i data-icon="phone" data-size="17"></i>327 223 9930</a>
+          <a class="ct-line" href="mailto:ciao@altraparte.it"><i data-icon="mail" data-size="17"></i>ciao@altraparte.it</a>
+          <a class="ct-line" href="https://www.instagram.com/un_altra_parte/" target="_blank" rel="noopener"><i data-icon="ig" data-size="17"></i>@un_altra_parte</a>
+        </div>
+        <div class="ct-actions">
+          <a class="btn btn-green" href="https://www.google.com/maps/place/Un'altra+parte/@38.1235741,13.3469262,17z/data=!3m1!4b1!4m6!3m5!1s0x1319ef14b41f7f05:0x537e55b90db4db76!8m2!3d38.1235741!4d13.3469262!16s%2Fg%2F11trgz5lc9?entry=ttu&amp;g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Apri su Google Maps <i data-icon="upright" data-size="15"></i></a>
+          <a class="btn btn-outline" href="tel:+393272239930">Contattaci</a>
+          <a class="btn btn-rev" href="https://www.google.com/maps/place/Un'altra+parte/@38.1235741,13.3469262,17z/data=!3m1!4b1!4m6!3m5!1s0x1319ef14b41f7f05:0x537e55b90db4db76!8m2!3d38.1235741!4d13.3469262!16s%2Fg%2F11trgz5lc9?entry=ttu&amp;g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener"><span class="rev-stars"><i data-icon="star" data-size="12"></i><i data-icon="star" data-size="12"></i><i data-icon="star" data-size="12"></i><i data-icon="star" data-size="12"></i><i data-icon="star" data-size="12"></i></span> Cosa dicono di noi su Google</a>
+        </div>
+        <div class="ct-note">
+          <p><strong>Una cosa:</strong> la domenica siamo chiusi — riposa anche il bancone. Per gruppi e tavolate scrivici prima su Instagram o al telefono.</p>
+        </div>
+      </div>
+      <div class="reveal">
+        <!-- SOSTITUISCI: qui sotto la tua immagine personale (pagina contatti) -->
+        <figure class="ct-side-photo">
+          <img src="immagini/esterno-frontale.webp" alt="Foto del locale">
+        </figure>
+        <p class="hc-h">Orari</p>
+        <div class="h-row" data-day="1"><span class="h-day">Lunedì</span><span class="h-time">17:00 – 00:00</span></div>
+        <div class="h-row" data-day="2"><span class="h-day">Martedì</span><span class="h-time">17:00 – 00:00</span></div>
+        <div class="h-row" data-day="3"><span class="h-day">Mercoledì</span><span class="h-time">17:00 – 00:00</span></div>
+        <div class="h-row" data-day="4"><span class="h-day">Giovedì</span><span class="h-time">17:00 – 00:00</span></div>
+        <div class="h-row" data-day="5"><span class="h-day">Venerdì</span><span class="h-time">17:00 – 00:00</span></div>
+        <div class="h-row" data-day="6"><span class="h-day">Sabato</span><span class="h-time">17:00 – 00:00</span></div>
+        <div class="h-row closed" data-day="0"><span class="h-day">Domenica</span><span class="h-time">Chiuso</span></div>
+      </div>
+    </div>
+    <figure class="ct-photo reveal">
+      <img src="https://picsum.photos/seed/altraparte-esterno/1800/760.jpg" alt="La facciata del locale">
+    </figure>
+    <div style="height:90px"></div>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a href="#/home"><img data-logo alt="altra parte"><span class="logo-fallback">altra parte</span></a>
+      <p>Wine bar &amp; pub. Una carta di vini scelta bicchiere per bicchiere, cocktail puliti e un bancone che non delude.</p>
+    </div>
+    <div class="foot-col">
+      <h4>La carta</h4>
+      <a href="#/menu/vini">Carta dei vini</a>
+      <a href="#/menu/cocktail">Cocktail</a>
+      <a href="#/menu/birre">Birre</a>
+      <a href="#/menu/distillati">Distillati</a>
+      <a href="#/menu/food">Food</a>
+      <a href="#/menu/soft">Soft drink</a>
+    </div>
+    <div class="foot-col">
+      <h4>Il locale</h4>
+      <a href="#/home" data-goto="#about">Chi siamo</a>
+      <a href="#/home" data-goto="#gallery-sec">Gallery</a>
+      <a href="https://www.google.com/maps/place/Un'altra+parte/@38.1235741,13.3469262,17z/data=!3m1!4b1!4m6!3m5!1s0x1319ef14b41f7f05:0x537e55b90db4db76!8m2!3d38.1235741!4d13.3469262!16s%2Fg%2F11trgz5lc9?entry=ttu&amp;g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Recensioni Google</a>
+    </div>
+    <div class="foot-col">
+      <h4>Contatti</h4>
+      <a href="#/contatti">Piazza Stazione Lolli 8, Palermo</a>
+      <a href="tel:+393272239930">327 223 9930</a>
+      <span>Lun – Sab · dalle 17</span>
+      <a href="https://www.instagram.com/un_altra_parte/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <!-- SOSTITUISCI: qui sotto metti il tuo logo PNG (RiOt Design) e il link al tuo sito — niente cornici, l'immagine resta libera -->
+    <a class="riot-logo" href="https://www.riotdesign.it/" target="_blank" rel="noopener" aria-label="RiOt Design — realizzazione del sito">
+      <img src="immagini/riot.png" alt="RiOt Design">
+    </a>
+    <div class="ticker">
+      <div class="ticker-track">
+        <span class="tk">© 2026 Celafaremo srls. Tutti i diritti riservati. “Questo sito è carbon free, plastic free e water free. Wine full.” Realizzato e imbottigliato da RiOt Design.</span>
+        <span class="tk" aria-hidden="true">© 2026 Celafaremo srls. Tutti i diritti riservati. “Questo sito è carbon free, plastic free e water free. Wine full.” Realizzato e imbottigliato da RiOt Design.</span>
+      </div>
+    </div>
+    <div class="fb-pol">
+      <button class="flink" data-modal="privacy">Privacy Policy</button>
+      <button class="flink" data-modal="cookie">Cookie Policy</button>
+    </div>
+  </div>
+</footer>
+
+<div id="float-img" aria-hidden="true"><img src="" alt=""></div>
+
+<!-- modale policy -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-t">
+  <div class="modal-bg" data-close></div>
+  <div class="modal-card">
+    <button class="modal-close" data-close aria-label="Chiudi"><i data-icon="close" data-size="20"></i></button>
+    <h3 id="modal-t"></h3>
+    <div id="modal-b"></div>
+  </div>
+</div>
+
+<script>
+/* ================= dati ================= */
+const LOGO_URL = 'https://z-cdn-media.chatglm.cn/files/ffc18645-4bc9-43fa-b5aa-87f44298b587.png?auth_key=1888670849-c9c7472b45a941f78b35753b61d86bfc-0-ce6fd6241f331872e8197a15a868d1bc';
+
+/* icone UI (SVG inline) */
+const ICONS = {
+  search:'<circle cx="11" cy="11" r="7"/><path d="m20 20-4.2-4.2"/>',
+  arrow:'<path d="M4 12h15"/><path d="M13 6l6 6-6 6"/>',
+  upright:'<path d="M7 17 17 7"/><path d="M9 7h8v8"/>',
+  phone:'<path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/>',
+  pin:'<path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/>',
+  clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>',
+  ig:'<rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/>',
+  star:'<path fill="currentColor" stroke="none" d="m12 2.8 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.6l-5.8 3.1 1.1-6.5L2.6 9.6l6.5-.9L12 2.8Z"/>',
+  close:'<path d="M6 6l12 12M18 6 6 18"/>',
+  mail:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',
+  glass:'<path fill="currentColor" stroke="none" d="M7 3h10c0 5-2.1 8.3-5 9V16h3.5v2H8.5v-2H12v-4c-2.9-.7-5-4-5-9Z"/>'
+};
+const icon = (n, s=16) => `<svg class="ic" width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[n]}</svg>`;
+
+/* note olfattive / gustative: glifi SVG colorati */
+const NOTES = {
+  fruttato:{l:'Fruttato',c:'#a63d4f',g:'<circle cx="12" cy="13.5" r="6" fill="currentColor"/><path d="M12 7.5c.4-2.4 2.2-4 4.4-3.9" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>'},
+  floreale:{l:'Floreale',c:'#c07d9e',g:'<g fill="currentColor"><circle cx="12" cy="6.5" r="2.6"/><circle cx="17" cy="10.2" r="2.6"/><circle cx="15.1" cy="16" r="2.6"/><circle cx="8.9" cy="16" r="2.6"/><circle cx="7" cy="10.2" r="2.6"/></g><circle cx="12" cy="12" r="2.1" fill="#fff" opacity=".9"/>'},
+  erbaceo:{l:'Erbaceo',c:'#3A871C',g:'<path fill="currentColor" d="M12 3c4.5 2.8 6.6 6.6 6.6 10A6.6 6.6 0 0 1 5.4 13C5.4 9.6 7.5 5.8 12 3Z"/><path d="M12 7.5V19.5" stroke="#fff" opacity=".65" stroke-width="1.6" fill="none"/>'},
+  agrumato:{l:'Agrumato',c:'#d97b29',g:'<circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path stroke="currentColor" stroke-width="1.6" fill="none" d="M12 4.5v15M4.5 12h15M6.7 6.7l10.6 10.6M17.3 6.7 6.7 17.3"/>'},
+  speziato:{l:'Speziato',c:'#8a5a2b',g:'<path fill="currentColor" d="m12 4 1.8 5.2 5.5.2-4.3 3.5 1.5 5.3L12 15.4l-4.5 2.8 1.5-5.3-4.3-3.5 5.5-.2L12 4Z"/>'},
+  minerale:{l:'Minerale',c:'#5e7f8a',g:'<path fill="currentColor" d="M12 3.5 18 12l-6 8.5L6 12 12 3.5Z"/><path d="M12 3.5v17" stroke="#fff" opacity=".5" stroke-width="1.4" fill="none"/>'},
+  dolce:{l:'Dolce',c:'#c9862b',g:'<path fill="currentColor" d="M12 3.5S6.2 10 6.2 14a5.8 5.8 0 0 0 11.6 0C17.8 10 12 3.5 12 3.5Z"/>'},
+  caldo:{l:'Caldo',c:'#b0512a',g:'<path fill="currentColor" d="M12 2.5c.4 3.5 4.8 5.2 4.8 9.7a4.8 4.8 0 1 1-9.6 0c0-2 1-3.4 2-4.7.2 1.4.8 2.3 1.8 2.9C10.7 7.6 11.2 5 12 2.5Z"/>'},
+  fresco:{l:'Fresco',c:'#4a97b5',g:'<path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 3v18M4.2 7.5l15.6 9M19.8 7.5l-15.6 9" fill="none"/>'},
+  tannico:{l:'Tannico',c:'#7a4a2b',g:'<g fill="currentColor"><circle cx="9" cy="15" r="3.2"/><circle cx="15" cy="15" r="3.2"/><circle cx="12" cy="9.5" r="3.2"/></g><path d="M12 6.3V3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>'},
+  acidulo:{l:'Acidulo',c:'#b5a02d',g:'<path fill="currentColor" d="M13.2 2.5 5.5 13.5h4.7L9 21.5l7.8-11h-4.8l1.2-8Z"/>'},
+  intenso:{l:'Intenso',c:'#43302b',g:'<circle cx="12" cy="12" r="7" fill="currentColor"/><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>'},
+  sapido:{l:'Sapido',c:'#4a97b5',g:'<path stroke="currentColor" stroke-width="2.2" stroke-linecap="round" fill="none" d="M3.5 10c2.8-3.6 5.7-3.6 8.5 0s5.7 3.6 8.5 0M3.5 16c2.8-3.6 5.7-3.6 8.5 0s5.7 3.6 8.5 0"/>'},
+  vellutato:{l:'Vellutato',c:'#9b6a9e',g:'<path stroke="currentColor" stroke-width="2.2" stroke-linecap="round" fill="none" d="M3 13c3.5-6 7-6 9 0s5.5 6 9 0"/>'}
+};
+const chip = k => { const n = NOTES[k]; return n ? `<span class="chip"><svg viewBox="0 0 24 24" style="color:${n.c}" aria-hidden="true">${n.g}</svg>${n.l}</span>` : ''; };
+
+/* ================= carta dei vini =================
+   Dati da "vini.txt" + "vini mescita.txt" unificati: ogni vino compare una sola volta;
+   "g" = prezzo calice (ALLA MESCITA); "y" = annata; "abv" = gradazione; "m" = metodo.
+   Note olfattive/gustative (nose/pal) assegnate dal profilo tipico del vitigno/stilo. */
+const WINES = [
+  /* --- Bollicine --- */
+  {n:"Franciacorta Brut Primum",p:"La Valle",r:"Lombardia",gr:"Chardonnay / Pinot Nero",t:"bollicine",b:40,nose:["agrumato","floreale"],pal:["fresco","sapido"]},
+  {n:"Alta Langa Extra Brut",p:"Marziano Abbona",r:"Piemonte",gr:"Chardonnay / Pinot Nero",t:"bollicine",b:55,m:"Metodo Classico",nose:["agrumato","speziato"],pal:["fresco","sapido"]},
+  {n:"Trento 3.Tre Dosaggio Zero",p:"Pelz",r:"Trentino-Alto Adige",gr:"Chardonnay",t:"bollicine",b:42,nose:["agrumato","speziato"],pal:["fresco","minerale"]},
+  {n:"Blanc du Blanc Brut",p:"Cave Mont Blanc",r:"Valle d'Aosta",gr:"Chardonnay",t:"bollicine",b:40,m:"Metodo Classico",nose:["floreale","agrumato"],pal:["fresco","minerale"]},
+  {n:"Miol Prosecco Extra Dry",p:"Bortolomiol",r:"Veneto",gr:"Glera",t:"bollicine",b:20,g:5,nose:["floreale","fruttato"],pal:["fresco","acidulo"]},
+  {n:"Crémant d'Alsace Brut",p:"Scheidecker",r:"Alsazia (Francia)",t:"bollicine",b:32,g:8,nose:["floreale","fruttato"],pal:["fresco","sapido"]},
+  {n:"Crémant d'Alsace Brut Rosé",p:"Scheidecker",r:"Alsazia (Francia)",t:"bollicine",b:32,g:8,nose:["fruttato","floreale"],pal:["fresco","sapido"]},
+  {n:"Champagne Brut Réserve",p:"Charles Heidsieck",r:"Champagne (Francia)",gr:"Chardonnay / Pinot Nero / Pinot Meunier",t:"bollicine",b:70,nose:["speziato","fruttato"],pal:["sapido","intenso"]},
+  {n:"Champagne Brut Cuvée D",p:"Devaux",r:"Champagne (Francia)",gr:"Chardonnay / Pinot Nero / Pinot Meunier",t:"bollicine",b:62,nose:["fruttato","speziato"],pal:["sapido","fresco"]},
+
+  /* --- Bianchi --- */
+  {n:"Anima Antica",p:"Di Bella",r:"Sicilia",gr:"Catarratto",t:"bianchi",b:36,nose:["agrumato","floreale"],pal:["intenso","sapido"]},
+  {n:"Catarratto Esperides",p:"Di Bella",r:"Sicilia",gr:"Catarratto",y:2024,abv:"12,5%",t:"bianchi",b:28,g:7,nose:["agrumato","floreale"],pal:["fresco","sapido"]},
+  {n:"Pithos Bianco",p:"Cos",r:"Sicilia",t:"bianchi",b:40,nose:["fruttato","speziato"],pal:["intenso","vellutato"]},
+  {n:"Zibibbo in Pithos",p:"Cos",r:"Sicilia",gr:"Zibibbo",t:"bianchi",b:40,nose:["floreale","fruttato"],pal:["intenso","sapido"]},
+  {n:"Chardonnay Baccante",p:"Abbazia Santa Anastasia",r:"Sicilia",gr:"Chardonnay",t:"bianchi",b:36,nose:["fruttato","floreale"],pal:["fresco","vellutato"]},
+  {n:"Grillo Acacia",p:"Colosi",r:"Sicilia",gr:"Grillo",t:"bianchi",b:24,g:6,nose:["floreale","fruttato"],pal:["fresco","sapido"]},
+  {n:"L'Isola Bianco",p:"Hibiscus",r:"Sicilia",t:"bianchi",b:38,nose:["erbaceo","agrumato"],pal:["fresco","sapido"]},
+  {n:"Malvasia Secca del Capo",p:"Colosi",r:"Sicilia",gr:"Malvasia",t:"bianchi",b:28,g:7,nose:["floreale","fruttato"],pal:["fresco","sapido"]},
+  {n:"Salina Bianco Racina",p:"Salvatore D'Amico",r:"Sicilia",t:"bianchi",b:36,nose:["erbaceo","agrumato"],pal:["fresco","minerale"]},
+  {n:"Sauvignon Sinestesia",p:"Abbazia Santa Anastasia",r:"Sicilia",gr:"Sauvignon",t:"bianchi",b:32,nose:["erbaceo","agrumato"],pal:["fresco","sapido"]},
+  {n:"Falanghina Campi Flegrei",p:"La Sibilla",r:"Campania",gr:"Falanghina",y:2024,abv:"12%",t:"bianchi",b:28,nose:["floreale","fruttato"],pal:["fresco","sapido"]},
+  {n:"Furore Bianco Fiorduva",p:"Marisa Cuomo",r:"Campania",gr:"Fenile / Ginestra / Ripoli",t:"bianchi",b:80,nose:["floreale","fruttato"],pal:["intenso","sapido"]},
+  {n:"Costa d'Amalfi Tramonti Bianco",p:"Tenuta San Francesco",r:"Campania",t:"bianchi",b:33,nose:["floreale","fruttato"],pal:["fresco","sapido"]},
+  {n:"Fiano Colli di Salerno Quartara",p:"Lunarossa",r:"Campania",gr:"Fiano",t:"bianchi",b:45,nose:["floreale","fruttato"],pal:["fresco","sapido"]},
+  {n:"Fiano Sequenza",p:"Benito Ferrara",r:"Campania",gr:"Fiano",t:"bianchi",b:35,nose:["floreale","fruttato"],pal:["fresco","sapido"]},
+  {n:"Greco di Tufo Vigna Cicogna",p:"Benito Ferrara",r:"Campania",gr:"Greco",t:"bianchi",b:40,nose:["fruttato","agrumato"],pal:["fresco","sapido"]},
+  {n:"Bianco di Mitja",p:"Sirk Mitja",r:"Friuli-Venezia Giulia",gr:"Friulano",t:"bianchi",b:34,nose:["floreale","erbaceo"],pal:["fresco","sapido"]},
+  {n:"Vitovska",p:"Skerk",r:"Friuli-Venezia Giulia",gr:"Vitovska",t:"bianchi",b:46,nose:["agrumato","erbaceo"],pal:["fresco","minerale"]},
+  {n:"Collio Ribolla Gialla",p:"Komjanc Simon",r:"Friuli-Venezia Giulia",gr:"Ribolla Gialla",t:"bianchi",b:28,g:7,nose:["fruttato","floreale"],pal:["fresco","sapido"]},
+  {n:"Friulano",p:"Ronco Severo",r:"Friuli-Venezia Giulia",gr:"Friulano",t:"bianchi",b:45,nose:["floreale","erbaceo"],pal:["fresco","sapido"]},
+  {n:"Pinot Grigio Ramato",p:"Ronco Severo",r:"Friuli-Venezia Giulia",gr:"Pinot Grigio",t:"bianchi",b:46,nose:["fruttato","floreale"],pal:["fresco","sapido"]},
+  {n:"Grechetto La Tour a Civitella",p:"Sergio Mottura",r:"Lazio",gr:"Grechetto",t:"bianchi",b:44,nose:["fruttato","floreale"],pal:["fresco","sapido"]},
+  {n:"Lugana",p:"Cà Lojera",r:"Lombardia",gr:"Trebbiano di Lugana",t:"bianchi",b:28,g:7,nose:["floreale","agrumato"],pal:["fresco","sapido"]},
+  {n:"Passerina Chicca",p:"Pantaleone",r:"Marche",gr:"Passerina",t:"bianchi",b:24,g:6,nose:["floreale","agrumato"],pal:["fresco","acidulo"]},
+  {n:"Pecorino Onirocep",p:"Pantaleone",r:"Marche",gr:"Pecorino",y:2025,abv:"14%",t:"bianchi",b:28,g:7,nose:["floreale","fruttato"],pal:["fresco","sapido"]},
+  {n:"Langhe Bianco Cinerino",p:"Marziano Abbona",r:"Piemonte",gr:"Viognier",t:"bianchi",b:38,nose:["floreale","fruttato"],pal:["vellutato","fresco"]},
+  {n:"Mesdi'",p:"Cascina Bric",r:"Piemonte",gr:"Favorita",t:"bianchi",b:24,g:6,nose:["floreale","erbaceo"],pal:["fresco","sapido"]},
+  {n:"Langhe Riesling Herzu",p:"Ettore Germano",r:"Piemonte",gr:"Riesling",t:"bianchi",b:36,nose:["agrumato","minerale"],pal:["fresco","acidulo"]},
+  {n:"Timorasso Piccolo Derthona",p:"Vigneti Massa",r:"Piemonte",gr:"Timorasso",y:2024,abv:"12,5%",t:"bianchi",b:32,g:8,nose:["fruttato","agrumato"],pal:["sapido","intenso"]},
+  {n:"Gewürztraminer",p:"Albino Armani",r:"Trentino-Alto Adige",gr:"Gewürztraminer",y:2025,abv:"13%",t:"bianchi",b:28,g:7,nose:["floreale","speziato"],pal:["caldo","vellutato"]},
+  {n:"Moscato Giallo",p:"Popphof",r:"Trentino-Alto Adige",gr:"Moscato Giallo",t:"bianchi",b:39,nose:["floreale","speziato"],pal:["dolce","caldo"]},
+  {n:"Müller Thurgau",p:"Tenuta Rottensteiner",r:"Trentino-Alto Adige",gr:"Müller Thurgau",y:2024,abv:"13,5%",t:"bianchi",b:28,g:7,nose:["floreale","fruttato"],pal:["fresco","sapido"]},
+  {n:"Gold Muscateller",p:"Tenuta Rottensteiner",r:"Trentino-Alto Adige",gr:"Moscato Giallo",t:"bianchi",b:26,g:7,nose:["floreale","speziato"],pal:["fresco","sapido"]},
+  {n:"Kitz Bianco",p:"Tenuta Rottensteiner",r:"Trentino-Alto Adige",gr:"Sauvignon / Pinot Bianco / Chardonnay",t:"bianchi",b:24,g:6,nose:["erbaceo","fruttato"],pal:["fresco","sapido"]},
+  {n:"Pinot Bianco",p:"Tenuta Rottensteiner",r:"Trentino-Alto Adige",gr:"Pinot Bianco",t:"bianchi",b:24,g:6,nose:["floreale","fruttato"],pal:["fresco","sapido"]},
+  {n:"Blanc de Morgex et de La Salle Nathan",p:"Ermes Pavese",r:"Valle d'Aosta",gr:"Prié Blanc",t:"bianchi",b:40,nose:["floreale","agrumato"],pal:["fresco","minerale"]},
+  {n:"Garganega Macerata",p:"Quota 101",r:"Veneto",gr:"Garganega",y:2024,abv:"12%",t:"bianchi",b:24,nose:["fruttato","floreale"],pal:["intenso","sapido"]},
+  {n:"Soave Classico Montesei",p:"Le Battistelle",r:"Veneto",gr:"Garganega",t:"bianchi",b:28,g:7,nose:["floreale","fruttato"],pal:["fresco","minerale"]},
+  {n:"Château de Riquewihr Grand Cru Schoenenbourg",p:"Dopff e Irion",r:"Alsazia (Francia)",gr:"Riesling",t:"bianchi",b:37,nose:["agrumato","minerale"],pal:["fresco","sapido"]},
+  {n:"Château de Riquewihr Grand Cru Sporen",p:"Dopff e Irion",r:"Alsazia (Francia)",gr:"Gewürztraminer",t:"bianchi",b:39,nose:["floreale","speziato"],pal:["vellutato","caldo"]},
+  {n:"Revolution White Solera",p:"Zillinger",r:"Austria",t:"bianchi",b:36,nose:["speziato","fruttato"],pal:["intenso","sapido"]},
+  {n:"Assemblage",p:"Tacherons",r:"Altro",gr:"Sauvignon / Pinot Bianco / Chardonnay",t:"bianchi",b:24,g:6,nose:["erbaceo","fruttato"],pal:["fresco","sapido"]},
+  {n:"Saumur",p:"Château de Villeneuve",r:"Loira (Francia)",gr:"Chenin",t:"bianchi",b:40,nose:["fruttato","floreale"],pal:["fresco","sapido"]},
+
+  /* --- Rosati --- */
+  {n:"Schiava",p:"Simoncelli",r:"Trentino-Alto Adige",gr:"Schiava Gentile",y:2025,abv:"12%",t:"rosati",b:24,g:6,nose:["fruttato","floreale"],pal:["fresco","acidulo"]},
+
+  /* --- Rossi --- */
+  {n:"Nero d'Avola-Syrah",p:"Di Bella",r:"Sicilia",gr:"Nero d'Avola / Syrah",t:"rossi",b:38,nose:["fruttato","speziato"],pal:["caldo","vellutato"]},
+  {n:"Syrah Jetas",p:"Di Bella",r:"Sicilia",gr:"Syrah",t:"rossi",b:36,nose:["speziato","fruttato"],pal:["caldo","intenso"]},
+  {n:"Montepulciano d'Abruzzo",p:"Torre dei Beati",r:"Abruzzo",gr:"Montepulciano",t:"rossi",b:28,nose:["fruttato","speziato"],pal:["caldo","vellutato"]},
+  {n:"Mazzamurello",p:"Torre dei Beati",r:"Abruzzo",gr:"Montepulciano",t:"rossi",b:55,nose:["fruttato","speziato"],pal:["caldo","tannico"]},
+  {n:"Irpinia Aglianico Vigna Quattro Confini",p:"Benito Ferrara",r:"Campania",gr:"Aglianico",t:"rossi",b:30,nose:["fruttato","speziato"],pal:["tannico","caldo"]},
+  {n:"Taurasi Vigna Quattro Confini",p:"Benito Ferrara",r:"Campania",gr:"Aglianico",t:"rossi",b:55,nose:["speziato","fruttato"],pal:["tannico","intenso"]},
+  {n:"Morus Nigra Refosco",p:"Vignai da Duline",r:"Friuli-Venezia Giulia",gr:"Refosco",t:"rossi",b:55,nose:["fruttato","speziato"],pal:["tannico","fresco"]},
+  {n:"Buttafuoco Solinghino",p:"Andrea Picchioni",r:"Lombardia",gr:"Croatina / Barbera / Uva Rara",t:"rossi",b:26,nose:["fruttato","speziato"],pal:["caldo","vellutato"]},
+  {n:"Grumello Riserva Rocca de Piro",p:"Ar.Pe.Pe",r:"Lombardia",gr:"Nebbiolo",t:"rossi",b:60,nose:["floreale","speziato"],pal:["tannico","fresco"]},
+  {n:"Rosso di Valtellina",p:"Ar.Pe.Pe",r:"Lombardia",gr:"Nebbiolo",t:"rossi",b:45,nose:["fruttato","floreale"],pal:["fresco","tannico"]},
+  {n:"Sassella Riserva Ultimi Raggi",p:"Ar.Pe.Pe",r:"Lombardia",gr:"Nebbiolo",t:"rossi",b:85,nose:["speziato","fruttato"],pal:["tannico","intenso"]},
+  {n:"Langhe Rosso Zero Solfiti",p:"Marziano Abbona",r:"Piemonte",gr:"Nebbiolo / Barbera",t:"rossi",b:38,nose:["fruttato","floreale"],pal:["fresco","tannico"]},
+  {n:"Morenico",p:"Rovellotti",r:"Piemonte",gr:"Nebbiolo",y:2022,t:"rossi",b:24,g:6,nose:["fruttato","floreale"],pal:["tannico","fresco"]},
+  {n:"Barbaresco Rombone",p:"Luigi Oddero",r:"Piemonte",gr:"Nebbiolo",t:"rossi",b:60,nose:["speziato","floreale"],pal:["tannico","caldo"]},
+  {n:"Barolo",p:"Ettore Germano",r:"Piemonte",gr:"Nebbiolo",t:"rossi",b:60,nose:["speziato","fruttato"],pal:["tannico","caldo"]},
+  {n:"Bramaterra",p:"Proprietà Sperino",r:"Piemonte",gr:"Nebbiolo",t:"rossi",b:75,nose:["fruttato","speziato"],pal:["tannico","fresco"]},
+  {n:"Gattinara",p:"Cantina Sociale Gattinara",r:"Piemonte",gr:"Nebbiolo",t:"rossi",b:45,nose:["floreale","speziato"],pal:["tannico","fresco"]},
+  {n:"Uvaggio",p:"Proprietà Sperino",r:"Piemonte",t:"rossi",b:55,nose:["fruttato","speziato"],pal:["tannico","fresco"]},
+  {n:"Primitivo Legami",p:"Frisino",r:"Puglia",gr:"Primitivo",y:2024,t:"rossi",b:24,nose:["fruttato","speziato"],pal:["caldo","vellutato"]},
+  {n:"Rosso Mandrolisai Garage",p:"I Garagisti di Sorgono",r:"Sardegna",gr:"Bovale / Cannonau / Monica",t:"rossi",b:34,nose:["fruttato","speziato"],pal:["caldo","vellutato"]},
+  {n:"Bolgheri Rosso Clarice",p:"Dario di Vaira",r:"Toscana",gr:"Merlot / Cabernet Sauvignon / Syrah",t:"rossi",b:33,nose:["fruttato","speziato"],pal:["caldo","vellutato"]},
+  {n:"Chianti Colli Senesi Campale",p:"Il Colombaio",r:"Toscana",gr:"Sangiovese / Merlot / Canaiolo",t:"rossi",b:32,nose:["fruttato","floreale"],pal:["tannico","fresco"]},
+  {n:"Il Randagio",p:"Carleone",r:"Toscana",gr:"Cabernet Franc / Merlot",t:"rossi",b:38,nose:["erbaceo","fruttato"],pal:["vellutato","fresco"]},
+  {n:"Pinot Nero Vigneto di Coldaia",p:"Podere Fortuna",r:"Toscana",gr:"Pinot Nero",t:"rossi",b:42,nose:["fruttato","floreale"],pal:["fresco","vellutato"]},
+  {n:"Cabernet",p:"Tenuta Rotaliana",r:"Trentino-Alto Adige",gr:"Cabernet",y:2024,abv:"13%",t:"rossi",b:24,nose:["erbaceo","fruttato"],pal:["caldo","tannico"]},
+  {n:"Lagrein",p:"Tenuta Rotaliana",r:"Trentino-Alto Adige",gr:"Lagrein",t:"rossi",b:24,nose:["fruttato","floreale"],pal:["tannico","caldo"]},
+  {n:"Merlot",p:"Tenuta Rotaliana",r:"Trentino-Alto Adige",gr:"Merlot",t:"rossi",b:24,nose:["fruttato","erbaceo"],pal:["caldo","vellutato"]},
+  {n:"Sagrantino di Montefalco",p:"Napolini",r:"Umbria",gr:"Sagrantino",t:"rossi",b:48,nose:["speziato","fruttato"],pal:["tannico","caldo"]},
+  {n:"Torrette",p:"Grosjean",r:"Valle d'Aosta",y:2024,abv:"13,5%",t:"rossi",b:32,nose:["fruttato","erbaceo"],pal:["fresco","tannico"]},
+  {n:"Margaux La Bastide",p:"Dauzac",r:"Bordeaux (Francia)",t:"rossi",b:60,nose:["speziato","fruttato"],pal:["tannico","vellutato"]}
+];
+const WINE_GROUPS = [["bollicine","Bollicine"],["bianchi","Bianchi"],["rosati","Rosati"],["rossi","Rossi"]];
+
+/* ================= cocktail — dati del locale ================= */
+const COCKTAILS = [
+  {n:"Basil Smash",cat:"aperitivi",base:"Gin",ing:"Gin Bombay Dry, succo di limone, sciroppo di zucchero, basilico",price:8},
+  {n:"Campari Spritz",cat:"aperitivi",base:"Prosecco",ing:"Bitter Campari, prosecco",price:5},
+  {n:"Select Spritz",cat:"aperitivi",base:"Prosecco",ing:"Bitter Select, prosecco",price:5},
+  {n:"Aperol Spritz",cat:"aperitivi",base:"Prosecco",ing:"Aperol, prosecco",price:5},
+  {n:"Bloody Mary",cat:"classici",base:"Vodka",ing:"Vodka 42 Below, succo di pomodoro, succo di limone, salsa Worcestershire, tabasco, sale, pepe, sedano",price:8},
+  {n:"Boulevardier",cat:"classici",base:"Bourbon",ing:"Bourbon Four Roses, bitter Campari, vermouth Martini",price:7},
+  {n:"Gin Sour",cat:"classici",base:"Gin",ing:"Gin Bombay Dry, succo di limone, sciroppo di zucchero",price:8},
+  {n:"Moscow Mule",cat:"classici",base:"Vodka",ing:"Vodka 42 Below, succo di limone, ginger beer",price:7},
+  {n:"Negroni",cat:"classici",base:"Gin",ing:"Gin Bombay Dry, bitter Campari, vermouth Martini",price:7},
+  {n:"Negroni Sbagliato",cat:"classici",base:"Prosecco",ing:"Prosecco, bitter Campari, vermouth Martini",price:7},
+  {n:"Negroski",cat:"classici",base:"Vodka",ing:"Vodka 42 Below, bitter Campari, vermouth Martini",price:7},
+  {n:"Vodka Sour",cat:"classici",base:"Vodka",ing:"Vodka 42 Below, succo di limone, sciroppo di zucchero",price:8},
+  {n:"Whisky Sour",cat:"classici",base:"Whiskey",ing:"Bourbon Four Roses, succo di limone, sciroppo di zucchero",price:8},
+  {n:"Americano",cat:"classici",base:"Vermouth",ing:"Bitter Campari, prosecco, acqua frizzante",price:7},
+  {n:"Bramble",cat:"signature",base:"Gin",price:8,desc:"Il classico moderno che ci piace troppo per non farlo: base gin, tutto il resto te lo raccontiamo al bancone."},
+  {n:"Celtic Wind",cat:"signature",base:"Whiskey",price:8,desc:"Base whiskey, come suggerisce il nome. Il resto della ricetta non sta scritta da nessuna parte: chiedila a chi la fa."},
+  {n:"Paranoid",cat:"signature",base:"Whiskey",price:9,desc:"Il nostro signature da meditazione: base whiskey, nove euro, zero spiegazioni sulla carta. Il bancone sa tutto."},
+  {n:"Margarita",cat:"tropicali",base:"Tequila",ing:"Tequila Cazadores, triple sec, succo di limone, sale",price:8},
+  {n:"Mojito",cat:"tropicali",base:"Rum",ing:"Rum bianco Bacardi, zucchero, menta, succo di limone, soda",price:8},
+  {n:"Paloma",cat:"tropicali",base:"Tequila",ing:"Tequila Cazadores, succo di limone, sale, soda al pompelmo",price:8},
+  {n:"Piña Colada",cat:"tropicali",base:"Rum",ing:"Rum bianco Bacardi, succo d'ananas, succo di limone, crema di cocco",price:8},
+  {n:"Black Russian",cat:"after",base:"Vodka",ing:"Vodka, Borghetti",price:8},
+  {n:"Espresso Martini",cat:"after",base:"Vodka",ing:"Vodka, Borghetti, sciroppo di zucchero, caffè espresso",price:8}
+];
+
+/* ================= birre — dati del locale ================= */
+const BEERS = [
+  {n:"Red",cat:"altro",p:"Herrnbraeu",r:"Germania",f:"0,33 L",abv:"7,1%",price:5,spina:false},
+  {n:"Strong",cat:"altro",p:"Cisk",r:"Malta",f:"0,33 L",abv:"9%",price:4.5,spina:false},
+  {n:"IPA alla spina",cat:"ipa",p:"Cisk",r:"Malta",f:"0,20 L",abv:"5,7%",price:3.5,spina:true},
+  {n:"IPA alla spina",cat:"ipa",p:"Cisk",r:"Malta",f:"0,40 L",abv:"5,7%",price:5,spina:true},
+  {n:"Lager alla spina",cat:"lager",p:"Cisk",r:"Malta",f:"0,20 L",abv:"5%",price:3,spina:true},
+  {n:"Lager alla spina",cat:"lager",p:"Cisk",r:"Malta",f:"0,40 L",abv:"5%",price:4.5,spina:true}
+];
+const BEER_GROUPS = [["lager","Lager"],["ipa","IPA"],["altro","Altro"]];
+
+/* ================= distillati — dati del locale ================= */
+const DISTILLATI = [
+  {n:"Averna",sub:"Sicilia",cat:"amaro",price:5},
+  {n:"Braulio",sub:"Valtellina, Lombardia",cat:"amaro",price:6},
+  {n:"Burtuqa",sub:"Jacli",cat:"amaro",price:6},
+  {n:"Cartasio",sub:"Jacli",cat:"amaro",price:6},
+  {n:"Fernet Branca",sub:"Milano",cat:"amaro",price:5},
+  {n:"Jägermeister",sub:"Germania",cat:"amaro",price:5},
+  {n:"Amaro Montenegro",sub:"Bologna",cat:"amaro",price:5},
+  {n:"Unicum",sub:"Ungheria",cat:"amaro",price:5},
+  {n:"Bombay Dry",sub:"Inghilterra",cat:"gin",price:6},
+  {n:"Bulldog",sub:"Inghilterra",cat:"gin",price:7},
+  {n:"Cinghiardo",cat:"gin",price:10},
+  {n:"Favignana",sub:"Sicilia",cat:"gin",price:9},
+  {n:"Hendrick's",sub:"Scozia",cat:"gin",price:9},
+  {n:"Ionico",sub:"Puglia",cat:"gin",price:8},
+  {n:"Martin Miller's",sub:"Inghilterra",cat:"gin",price:8},
+  {n:"Monkey 47",sub:"Germania",cat:"gin",price:12},
+  {n:"No. 3",sub:"Inghilterra",cat:"gin",price:10},
+  {n:"Barrique",sub:"Nonino · Friuli",cat:"grappa",price:6},
+  {n:"Borghetti",sub:"Marche",cat:"liquore",price:5},
+  {n:"Fireball",sub:"Canada",cat:"liquore",price:6},
+  {n:"Pastis",sub:"Ricard · Marsiglia",cat:"liquore",price:5},
+  {n:"Mezcal",sub:"Messico",cat:"mezcal",price:8},
+  {n:"Bacardi",cat:"rum",price:6},
+  {n:"Diplomatico",sub:"Venezuela",cat:"rum",price:8},
+  {n:"Don Papa",sub:"Filippine",cat:"rum",price:10},
+  {n:"Legendario",sub:"Cuba",cat:"rum",price:7},
+  {n:"Sailor Jerry",cat:"rum",price:6},
+  {n:"Captain Morgan Spiced Gold",cat:"rum",price:6},
+  {n:"Cazadores",sub:"Messico",cat:"tequila",price:7},
+  {n:"Patrón Reposado",sub:"Messico",cat:"tequila",price:12},
+  {n:"Patrón Silver",sub:"Messico",cat:"tequila",price:10},
+  {n:"42 Below",sub:"Nuova Zelanda",cat:"vodka",price:6},
+  {n:"Grey Goose",sub:"Francia",cat:"vodka",price:8},
+  {n:"Four Roses",sub:"Kentucky, USA",cat:"whisky",price:6},
+  {n:"Jack Daniel's",sub:"Tennessee, USA",cat:"whisky",price:6},
+  {n:"Jameson",sub:"Irlanda",cat:"whisky",price:6},
+  {n:"Laphroaig",sub:"Islay, Scozia",cat:"whisky",price:8},
+  {n:"Talisker",sub:"Islay, Scozia",cat:"whisky",price:8}
+];
+const DIST_GROUPS = [["amaro","Amari"],["gin","Gin"],["grappa","Grappa"],["liquore","Liquori"],["mezcal","Mezcal"],["rum","Rum"],["tequila","Tequila"],["vodka","Vodka"],["whisky","Whisky"]];
+
+/* ================= food — da modificare liberamente ================= */
+const FOOD = [
+  {n:"Tagliere misto",tag:"Tagliere",d:"Salumi, formaggi, pane, miele e marmellate. Per due — o per uno che fa sul serio.",price:16},
+  {n:"Tagliere di salumi",tag:"Tagliere",d:"Salumi affettati al momento e pane casereccio.",price:13},
+  {n:"Tagliere di formaggi",tag:"Tagliere",d:"Formaggi freschi e stagionati, mostarda e miele.",price:13},
+  {n:"Panelle e crocchè",d:"Street food palermitano, servite calde con sale e limone.",price:6},
+  {n:"Caponata di melanzane",d:"La nostra, con pane abbrustolito: un agrodolce che mette sete.",price:7},
+  {n:"Focaccia con stracciatella",d:"Stracciatella, pomodorini confit e basilico.",price:8}
+];
+
+/* ================= soft drink — dati del locale ================= */
+const SOFT = [
+  {n:"Acqua frizzante",s:"0,50 l",price:1},
+  {n:"Acqua naturale",s:"San Benedetto · 0,50 l",price:1},
+  {n:"Tonica Kinley",s:"0,15 l",price:3},
+  {n:"Chinotto",s:"Lurisia · 0,33 l",price:3.5},
+  {n:"Coca Cola",s:"0,33 l",price:3.5},
+  {n:"Coca Cola Zero",s:"0,25 l",price:3.5},
+  {n:"Crodino",price:3.5},
+  {n:"Estathé Limone",s:"Ferrero · 0,33 l",price:3.5},
+  {n:"Estathé Pesca",s:"Ferrero · 0,33 l",price:3.5},
+  {n:"Ginger Beer",s:"Fever-Tree",price:4},
+  {n:"Lemon Soda",s:"Levissima · 0,33 l",price:3.5},
+  {n:"Soda Pompelmo",s:"Schweppes",price:3.5},
+  {n:"Succo Ace",price:3},
+  {n:"Succo Ananas",price:3},
+  {n:"Succo Arancia",price:3},
+  {n:"Succo Mirtillo",price:3},
+  {n:"Succo Pera",price:3},
+  {n:"Tonica Indian",s:"Fever-Tree",price:4},
+  {n:"Tonica Light",s:"Fever-Tree",price:4}
+];
+
+const CATS = {
+  vini:{label:"Vini",unit:"vini",count:WINES.length,
+    filters:[["tutti","Tutti"],["bollicine","Bollicine"],["rossi","Rossi"],["bianchi","Bianchi"],["rosati","Rosati"],["mescita","Alla mescita"]],
+    search:"Cerca un vino, un'azienda, una regione…"},
+  cocktail:{label:"Cocktail",unit:"cocktail",count:COCKTAILS.length,
+    filters:[["tutti","Tutti"],["aperitivi","Aperitivi"],["classici","Classici"],["signature","Signature"],["tropicali","Tropicali"],["after","After dinner"]],
+    search:"Cerca un cocktail o un ingrediente…"},
+  birre:{label:"Birre",unit:"birre",count:BEERS.length,
+    filters:[["tutti","Tutti"],["lager","Lager"],["ipa","IPA"],["altro","Altro"]],
+    search:"Cerca una birra, un produttore…"},
+  distillati:{label:"Distillati",unit:"distillati",count:DISTILLATI.length,
+    filters:[["tutti","Tutti"],...DIST_GROUPS],
+    search:"Cerca un distillato…"},
+  food:{label:"Food",unit:"voci",count:FOOD.length,filters:[],search:""},
+  soft:{label:"Soft drink",unit:"voci",count:SOFT.length,filters:[],search:""}
+};
+
+/* ================= helper ================= */
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt = n => (n % 1 ? `€ ${String(n).replace('.', ',')}` : `€ ${n}`);
+
+/* ================= setup iniziale ================= */
+document.querySelectorAll('img[data-logo]').forEach(img => {
+  img.src = LOGO_URL;
+  img.addEventListener('error', () => {
+    img.style.display = 'none';
+    const f = img.parentElement.querySelector('.logo-fallback');
+    if (f) f.style.display = 'block';
+  }, { once:true });
+});
+document.querySelectorAll('[data-icon]').forEach(el => { el.outerHTML = icon(el.dataset.icon, el.dataset.size || 16); });
+
+/* highlight giorno corrente (pagina contatti) */
+const today = new Date().getDay();
+document.querySelectorAll('.h-row[data-day]').forEach(r => { if (Number(r.dataset.day) === today) r.classList.add('today'); });
+
+/* ================= reveal on scroll ================= */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold:.08, rootMargin:'0px 0px -6% 0px' });
+function watchReveals(root = document) {
+  root.querySelectorAll('.reveal:not(.in)').forEach((el, i) => {
+    el.style.transitionDelay = Math.min(i * 45, 380) + 'ms';
+    io.observe(el);
+  });
+}
+watchReveals(document);
+
+/* ================= router ================= */
+const state = { cat:'vini', filter:'tutti', query:'' };
+const views = { home:document.getElementById('view-home'), menu:document.getElementById('view-menu'), contatti:document.getElementById('view-contatti') };
+const menuBody = document.getElementById('menu-body');
+const catsEl = document.getElementById('cats');
+const navEl = document.getElementById('nav');
+let currentView = 'home';
+
+function parseHash() {
+  const parts = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean);
+  if (!parts.length) return { view:'home' };
+  if (parts[0] === 'menu') return { view:'menu', param: CATS[parts[1]] ? parts[1] : null };
+  if (parts[0] === 'contatti') return { view:'contatti' };
+  return { view:'home' };
+}
+function updateNav() {
+  const hero = document.querySelector('.hero');
+  const overHero = currentView === 'home' && hero && hero.getBoundingClientRect().bottom > 70;
+  navEl.classList.toggle('solid', !overHero);
+}
+function showView(name) {
+  currentView = name;
+  Object.entries(views).forEach(([k, v]) => v.classList.toggle('active', k === name));
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.toggle('active', a.dataset.nav === name));
+  const titles = { home:'altra parte — wine bar & pub, Palermo', menu:'altra parte — Menu', contatti:'altra parte — Contatti' };
+  document.title = titles[name];
+  closeMobileMenu();
+  updateNav();
+  watchReveals(views[name]);
+}
+function route() {
+  const r = parseHash();
+  showView(r.view);
+  if (r.view === 'menu') {
+    if (r.param) { state.cat = r.param; state.filter = 'tutti'; state.query = ''; }
+    renderMenu();
+  }
+  window.scrollTo(0, 0);
+}
+window.addEventListener('hashchange', route);
+
+/* link "chi siamo" / "gallery" dal footer: navigano e poi scrollano alla sezione */
+let gotoTarget = null;
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[data-goto]');
+  if (!a) return;
+  gotoTarget = a.dataset.goto;
+  setTimeout(() => {
+    if (!gotoTarget) return;
+    const el = document.querySelector(gotoTarget);
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 70, behavior:'smooth' });
+    gotoTarget = null;
+  }, 140);
+});
+
+/* ================= rendering menu ================= */
+const glassBadge = `<span class="badge-mescita">${icon('glass', 12)}Alla mescita</span>`;
+const spinaBadge = `<span class="badge-spina">Alla spina</span>`;
+const emptyHTML = `<div class="empty"><p class="e-title">Nessun risultato</p><p class="e-sub">Prova con un altro termine, oppure azzera i filtri.</p><button class="btn btn-outline" data-reset>Azzera filtri</button></div>`;
+
+const wineRow = w => `
+<article class="wine-row reveal">
+  <div class="wr-top">
+    <div class="wr-title">
+      <h3>${w.n}${w.y ? `<span class="wr-year">${w.y}</span>` : ''}</h3>
+      <p class="wr-sub">${esc([w.p, w.r, w.grape, w.abv].filter(Boolean).join(' · '))}</p>
+    </div>
+    <span class="leader" aria-hidden="true"></span>
+    <div class="wr-prices">
+      ${w.g ? glassBadge : ''}
+      ${w.m ? `<span class="badge-method">${w.m}</span>` : ''}
+      <div class="price-row">
+        <span class="price">${fmt(w.b)}<em>bottiglia</em></span>
+        ${w.g ? `<span class="price glass">${fmt(w.g)}<em>calice</em></span>` : ''}
+      </div>
+    </div>
+  </div>
+  <div class="wr-notes">
+    ${w.nose && w.nose.length ? `<span class="ng"><span class="ng-label">Olfatto</span><span class="ng-chips">${w.nose.map(chip).join('')}</span></span>` : ''}
+    ${w.pal && w.pal.length ? `<span class="ng"><span class="ng-label">Gusto</span><span class="ng-chips">${w.pal.map(chip).join('')}</span></span>` : ''}
+  </div>
+</article>`;
+
+const wineGroup = (label, items) => `
+<section class="dist-group reveal">
+  <h3>${label} <em>${items.length}</em></h3>
+  ${items.map(wineRow).join('')}
+</section>`;
+
+const ckRow = c => `
+<article class="ck-row${c.cat === 'signature' ? ' signature' : ''} reveal">
+  <div class="ck-top">
+    <div class="ck-title"><h3>${c.n}</h3>${c.cat === 'signature' ? '<span class="ck-tag">Signature</span>' : ''}</div>
+    <span class="leader" aria-hidden="true"></span>
+    <span class="ck-price">${fmt(c.price)}</span>
+  </div>
+  ${c.ing ? `<p class="ck-ing">${c.ing}</p>` : (c.base ? `<p class="ck-ing">Base ${c.base.toLowerCase()}</p>` : '')}
+  ${c.desc ? `<p class="ck-desc">${c.desc}</p>` : (c.cat === 'signature' && !c.ing ? `<p class="ck-desc">La ricetta non sta scritta sulla carta: chiedila al bancone.</p>` : '')}
+  ${c.tags && c.tags.length ? `<div class="ck-notes"><span class="ng-chips">${c.tags.map(chip).join('')}</span></div>` : ''}
+</article>`;
+
+const foodRow = f => `
+<article class="ck-row reveal">
+  <div class="ck-top">
+    <div class="ck-title"><h3>${f.n}</h3>${f.tag ? `<span class="ck-tag">${f.tag}</span>` : ''}</div>
+    <span class="leader" aria-hidden="true"></span>
+    <span class="ck-price">${fmt(f.price)}</span>
+  </div>
+  <p class="ck-ing">${f.d}</p>
+</article>`;
+
+const beerRow = b => `
+<article class="wine-row reveal">
+  <div class="wr-top">
+    <div class="wr-title">
+      <h3>${b.n}</h3>
+      <p class="wr-sub">${b.p} · ${b.r}</p>
+    </div>
+    <span class="leader" aria-hidden="true"></span>
+    <div class="wr-prices">
+      ${b.spina ? spinaBadge : ''}
+      <div class="price-row">
+        <span class="price">${fmt(b.price)}<em>${b.f} · ${b.abv}</em></span>
+      </div>
+    </div>
+  </div>
+</article>`;
+
+const distRow = d => `
+<article class="dist-row">
+  <h3>${d.n}</h3>${d.sub ? `<p class="dr-sub">${d.sub}</p>` : ''}
+  <span class="leader" aria-hidden="true"></span>
+  <span class="dr-price">${fmt(d.price)}<em>bicchiere</em></span>
+</article>`;
+
+const distGroup = (label, items) => `
+<section class="dist-group reveal">
+  <h3>${label} <em>${items.length}</em></h3>
+  ${items.map(distRow).join('')}
+</section>`;
+
+const beerGroup = (label, items) => `
+<section class="dist-group reveal">
+  <h3>${label} <em>${items.length}</em></h3>
+  ${items.map(beerRow).join('')}
+</section>`;
+
+const softRow = s => `
+<div class="soft-row reveal">
+  <span class="sr-name">${s.n}</span>${s.s ? `<span class="sr-sub">${s.s}</span>` : ''}
+  <span class="leader" aria-hidden="true"></span>
+  <span class="sr-price">${fmt(s.price)}</span>
+</div>`;
+
+function renderTabs() {
+  catsEl.innerHTML = Object.entries(CATS).map(([k, c]) =>
+    `<button type="button" class="cat-tab${state.cat === k ? ' active' : ''}" data-cat="${k}">${c.label}<em>${c.count}</em></button>`
+  ).join('');
+}
+
+function renderMenu() {
+  renderTabs();
+  if (state.cat === 'soft' || state.cat === 'food') {
+    menuBody.innerHTML = `<div class="wrap list" id="list"></div>`;
+    renderList(true);
+    return;
+  }
+  const c = CATS[state.cat];
+  menuBody.innerHTML = `
+  <div class="filterbar"><div class="wrap fb-in">
+    <div class="pills">
+      ${c.filters.map(f => `<button type="button" class="pill${state.filter === f[0] ? ' active' : ''}" data-pill="${f[0]}">${f[1]}</button>`).join('')}
+    </div>
+    <label class="search${state.query ? ' hasq' : ''}">
+      ${icon('search', 15)}
+      <input id="q" type="search" placeholder="${c.search}" value="${esc(state.query)}" autocomplete="off" aria-label="Cerca nel menu">
+      <button type="button" class="clear" data-clear aria-label="Azzera la ricerca">${icon('close', 13)}</button>
+    </label>
+    <span class="fcount" id="fcount"></span>
+  </div></div>
+  <div class="wrap list" id="list"></div>`;
+  renderList(true);
+}
+
+function renderList(animate = true) {
+  const list = menuBody.querySelector('#list');
+  if (!list) return;
+  const q = state.query ? state.query.toLowerCase() : '';
+  let html = '', count = 0;
+
+  if (state.cat === 'vini') {
+    const arr = WINES.filter(w => {
+      if (state.filter === 'mescita' && !w.g) return false;
+      if (state.filter !== 'tutti' && state.filter !== 'mescita' && w.t !== state.filter) return false;
+      if (q && !`${w.n} ${w.p} ${w.r} ${w.grape || ''}`.toLowerCase().includes(q)) return false;
+      return true;
+    });
+    count = arr.length;
+    if (state.filter === 'tutti') {
+      WINE_GROUPS.forEach(([k, label]) => {
+        const items = arr.filter(w => w.t === k);
+        if (items.length) html += wineGroup(label, items);
+      });
+      if (!count) html = emptyHTML;
+    } else {
+      html = arr.length ? arr.map(wineRow).join('') : emptyHTML;
+    }
+
+  } else if (state.cat === 'cocktail') {
+    const arr = COCKTAILS.filter(c => {
+      if (state.filter !== 'tutti' && c.cat !== state.filter) return false;
+      if (q && !`${c.n} ${c.ing || ''} ${c.base || ''}`.toLowerCase().includes(q)) return false;
+      return true;
+    });
+    count = arr.length;
+    html = arr.length ? arr.map(ckRow).join('') : emptyHTML;
+
+  } else if (state.cat === 'birre') {
+    const matchB = b => !q || `${b.n} ${b.p} ${b.r}`.toLowerCase().includes(q);
+    if (state.filter === 'tutti') {
+      BEER_GROUPS.forEach(([k, label]) => {
+        const items = BEERS.filter(b => b.cat === k && matchB(b));
+        if (items.length) html += beerGroup(label, items);
+      });
+      count = BEERS.filter(matchB).length;
+      if (!count) html = emptyHTML;
+    } else {
+      const g = BEER_GROUPS.find(g => g[0] === state.filter);
+      const items = BEERS.filter(b => b.cat === state.filter && matchB(b));
+      count = items.length;
+      html = items.length ? beerGroup(g[1], items) : emptyHTML;
+    }
+
+  } else if (state.cat === 'distillati') {
+    const matchD = d => !q || `${d.n} ${d.sub || ''}`.toLowerCase().includes(q);
+    if (state.filter === 'tutti') {
+      DIST_GROUPS.forEach(([k, label]) => {
+        const items = DISTILLATI.filter(d => d.cat === k && matchD(d));
+        if (items.length) html += distGroup(label, items);
+      });
+      count = DISTILLATI.filter(matchD).length;
+      if (!count) html = emptyHTML;
+    } else {
+      const g = DIST_GROUPS.find(g => g[0] === state.filter);
+      const items = DISTILLATI.filter(d => d.cat === state.filter && matchD(d));
+      count = items.length;
+      html = items.length ? distGroup(g[1], items) : emptyHTML;
+    }
+
+  } else if (state.cat === 'food') {
+    count = FOOD.length;
+    html = `<p class="soft-lead reveal">Poco e buono: quello che serve per stare al tavolo senza smettere di bere bene.</p>
+      ${FOOD.map(foodRow).join('')}`;
+
+  } else { /* soft */
+    count = SOFT.length;
+    html = `<p class="soft-lead reveal">Semplice, ghiacciato e onesto: tutto quello che serve per accompagnare bene un bicchiere.</p>
+      <div class="soft-grid">${SOFT.map(softRow).join('')}</div>`;
+  }
+
+  list.innerHTML = html;
+  const fc = menuBody.querySelector('#fcount');
+  if (fc) fc.textContent = `${count} ${CATS[state.cat].unit}`;
+  if (animate) watchReveals(list);
+  else list.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+}
+
+/* interazioni dentro la pagina menu (delegate, sopravvivono ai re-render) */
+function syncPills() {
+  menuBody.querySelectorAll('.pill').forEach(p => p.classList.toggle('active', p.dataset.pill === state.filter));
+}
+function syncSearch() {
+  const l = menuBody.querySelector('.search');
+  if (l) l.classList.toggle('hasq', !!state.query);
+}
+menuBody.addEventListener('click', e => {
+  const pill = e.target.closest('[data-pill]');
+  if (pill) { state.filter = pill.dataset.pill; syncPills(); renderList(true); return; }
+  const clear = e.target.closest('[data-clear]');
+  if (clear) { state.query = ''; const i = menuBody.querySelector('#q'); if (i) i.value = ''; syncSearch(); renderList(false); return; }
+  const reset = e.target.closest('[data-reset]');
+  if (reset) {
+    state.filter = 'tutti'; state.query = '';
+    const i = menuBody.querySelector('#q'); if (i) i.value = '';
+    syncPills(); syncSearch(); renderList(false);
+  }
+});
+menuBody.addEventListener('input', e => {
+  if (e.target.id === 'q') { state.query = e.target.value.trim(); syncSearch(); renderList(false); }
+});
+catsEl.addEventListener('click', e => {
+  const t = e.target.closest('[data-cat]');
+  if (!t || t.dataset.cat === state.cat) return;
+  state.cat = t.dataset.cat; state.filter = 'tutti'; state.query = '';
+  renderMenu();
+  window.scrollTo({ top:0, behavior:'smooth' });
+});
+
+/* ================= navbar scroll ================= */
+window.addEventListener('scroll', updateNav, { passive:true });
+
+/* ================= menu mobile ================= */
+const mmenu = document.getElementById('mmenu');
+function openMobileMenu(){ mmenu.classList.add('open'); mmenu.setAttribute('aria-hidden','false'); document.body.style.overflow = 'hidden'; }
+function closeMobileMenu(){ mmenu.classList.remove('open'); mmenu.setAttribute('aria-hidden','true'); document.body.style.overflow = ''; }
+document.getElementById('burger').addEventListener('click', openMobileMenu);
+document.getElementById('mm-close').addEventListener('click', closeMobileMenu);
+mmenu.querySelectorAll('nav a').forEach(a => a.addEventListener('click', closeMobileMenu));
+
+/* ================= immagine flottante (indice home) ================= */
+if (matchMedia('(hover:hover) and (min-width:900px)').matches) {
+  const fi = document.getElementById('float-img');
+  const fim = fi.querySelector('img');
+  let tx = innerWidth / 2, ty = innerHeight / 2, cx = tx, cy = ty;
+  addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; }, { passive:true });
+  (function raf() {
+    cx += (tx - cx) * .16; cy += (ty - cy) * .16;
+    fi.style.transform = `translate3d(${cx}px,${cy}px,0) translate(-50%,-112%) rotate(-2deg)`;
+    requestAnimationFrame(raf);
+  })();
+  document.querySelectorAll('.index-row').forEach(row => {
+    const src = row.dataset.img;
+    new Image().src = src; /* preload */
+    row.addEventListener('mouseenter', () => { fim.src = src; fi.classList.add('show'); });
+    row.addEventListener('mouseleave', () => fi.classList.remove('show'));
+  });
+}
+
+/* ================= modale policy ================= */
+const MODALS = {
+  privacy:{ t:'Privacy Policy', b:'<p>Questo sito non utilizza cookie di profilazione né strumenti di tracciamento di terze parti. Non raccogliamo dati personali: quello che guardi resta sul tuo dispositivo. Per qualsiasi richiesta, scrivi a <strong>ciao@altraparte.it</strong>.</p>' },
+  cookie:{ t:'Cookie Policy', b:'<p>Nessun banner fastidioso: il sito funziona senza cookie di tracciamento. Vengono usati solo eventuali dati tecnici necessari alla navigazione, che non consentono di identificarti.</p>' }
+};
+const modal = document.getElementById('modal');
+function openModal(k) {
+  const m = MODALS[k]; if (!m) return;
+  document.getElementById('modal-t').textContent = m.t;
+  document.getElementById('modal-b').innerHTML = m.b;
+  modal.classList.add('open');
+}
+document.addEventListener('click', e => {
+  const m = e.target.closest('[data-modal]');
+  if (m) openModal(m.dataset.modal);
+  if (e.target.closest('[data-close]')) modal.classList.remove('open');
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { modal.classList.remove('open'); closeMobileMenu(); }
+});
+
+/* ================= avvio ================= */
+route();
+</script>
+</body>
+</html>
